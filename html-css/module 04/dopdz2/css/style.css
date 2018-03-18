@@ -1,0 +1,18 @@
+li {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    color: #0E1116;
+}
+
+li:nth-child(1n) {
+    background-color: #88292F;
+}
+
+li:nth-child(2n) {
+    background-color: #5DB7DE;
+}
+
+.list-item:nth-child(3n) {
+    background-color: #0D5D56;
+}

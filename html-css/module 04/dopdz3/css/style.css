@@ -1,0 +1,12 @@
+.list-item::before {
+    content: "\2192";
+    margin-right: 8px;
+}
+
+.list {
+    list-style: none;
+}
+
+.list-item {
+    padding: 4px;
+}

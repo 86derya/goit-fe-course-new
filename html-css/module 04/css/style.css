@@ -1,0 +1,268 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.clearfix::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+header {
+    width: 1170px;
+    margin: 0px auto 52px auto;
+    padding: 0px;
+}
+
+.main-nav {
+    margin: 0px auto;
+    padding: 36px 30px 0 30px;
+}
+
+.site-logo-link {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 32px;
+    color: #555252;
+    float: left;
+}
+
+.site-logo-link::first-letter {
+    color: #1abc9c;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.menu-list {
+    margin: 0px;
+    padding: 0px;
+    width: 490px;
+    float: right;
+    list-style: none;
+}
+
+.menu-list li {
+    margin: 0px;
+    padding: 8px 0px;
+    float: left;
+}
+
+.menu-list li:not(:last-child) {
+    margin-right: 34px;
+}
+
+.menu-list a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 16px;
+    color: #0f0101;
+}
+
+.menu-list a:hover,
+.menu-list a:focus {
+    color: #1abc9c;
+}
+
+.content {
+    margin: 0px auto;
+    padding: 0px 30px 0px 30px;
+    width: 1170px;
+}
+
+.products {
+    margin: 0px auto 104px;
+    padding: 0px;
+    width: 1170px;
+}
+
+
+/* sedtion name */
+
+.section-name {
+    display: block;
+    width: 1170px;
+    padding: 0;
+    margin: 0px auto 92px auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: #515151;
+}
+
+.section-name::after {
+    background: #1abc9c;
+    margin: 32px auto 0;
+    width: 164px;
+    height: 8px;
+    line-height: 32px;
+}
+
+
+/* section Products */
+
+.product-cards {
+    display: block;
+    list-style: none;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+
+/* Product card */
+
+.product-item {
+    margin: 0px 30px 30px 0;
+    padding: 0px;
+    width: 255px;
+    height: 322px;
+    float: left;
+}
+
+.product-item:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.product-item:nth-child(n+5) {
+    margin-bottom: 0px;
+}
+
+.product-link {
+    display: block;
+    margin: 0px auto;
+    padding: 0px;
+    text-decoration: none;
+}
+
+.product-img {
+    display: block;
+    background-color: #e9f0fd;
+}
+
+.product-name {
+    display: block;
+    margin: 0px;
+    padding: 0px 0px 0px 12px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #323232;
+}
+
+.product-price {
+    float: right;
+    width: 54px;
+    background-color: #8c8c8c;
+    text-align: center;
+}
+
+.product-link:hover .product-name {
+    background-color: #1abc9c;
+}
+
+.product-link:focus .product-name {
+    background-color: #1abc9c;
+}
+
+.product-link:hover .product-price {
+    background-color: #7fd9c7;
+}
+
+.product-link:focus .product-price {
+    background-color: #7fd9c7;
+}
+
+
+/* news section */
+
+.news {
+    width: 1170px;
+    padding: 0px;
+}
+
+.news-cards {
+    margin: 0px;
+    padding: 0px;
+}
+
+.news-item {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    width: 350px;
+    list-style: none;
+    float: left;
+}
+
+.news-item:not(:last-child) {
+    margin-right: 30px;
+}
+
+.news-heading {
+    padding: 0px;
+    display: block;
+    text-align: left;
+    width: 350px;
+    margin-bottom: 28px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0f0101;
+}
+
+.news-heading::after {
+    background: #1abc9c;
+    margin: 12px 0px 0px 0px;
+    width: 136px;
+    height: 4px;
+    line-height: 32px;
+    text-align: left;
+}
+
+.news-preview {
+    display: block;
+    width: 350px;
+    margin: 0px 0px 18px 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    color: #605e5e;
+}
+
+.Read-more {
+    display: block;
+    margin: 0;
+    padding: 18px 0 18px 0;
+    width: 160px;
+    height: 52px;
+    background-color: #4ec6ab;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 18px;
+}

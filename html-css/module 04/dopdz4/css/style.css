@@ -1,0 +1,28 @@
+ul {
+    list-style: none;
+    counter-reset: q;
+    text-align: left;
+}
+
+li {
+    counter-increment: q;
+    margin: 0px 0px 10px 0px;
+}
+
+li::before {
+    content: counter(q, upper-roman);
+    color: rgb(62, 238, 76);
+    font-weight: bold;
+    line-height: 40px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0px 10px 0px 0px;
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+li:nth-child(5) {
+    margin: 0px;
+}

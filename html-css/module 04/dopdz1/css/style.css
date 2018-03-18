@@ -1,0 +1,26 @@
+.list {
+    margin: 0px auto;
+}
+
+.clearfix {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+.list::after {
+    content: "";
+}
+
+.list-item {
+    float: left;
+    margin-left: 25px;
+    list-style: none;
+    color: black;
+}
+
+.list-item a:hover,
+.list-item a:focus {
+    background: gray;
+    color: gold;
+}

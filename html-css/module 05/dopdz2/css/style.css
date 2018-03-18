@@ -1,0 +1,80 @@
+.main-box {
+    box-sizing: border-box;
+    margin: 30px auto;
+    padding: 0px;
+    width: 400px;
+    height: 400px;
+    background-color: #424242;
+    position: relative;
+    z-index: 1;
+    list-style: none;
+}
+
+.small-box {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+}
+
+.q {
+    background-color: teal;
+    left: 0;
+    top: 0;
+}
+
+.w {
+    background-color: red;
+    right: 0;
+    top: 0;
+}
+
+.e {
+    background-color: blueviolet;
+    left: 0;
+    bottom: 0;
+}
+
+.r {
+    background-color: blue;
+    right: 0;
+    bottom: 0;
+}
+
+.t {
+    background-color: gold;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.y {
+    background-color: green;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.u {
+    background-color: greenyellow;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.i {
+    background-color: rgb(199, 18, 184);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.o {
+    background-color: rgb(233, 174, 14);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
