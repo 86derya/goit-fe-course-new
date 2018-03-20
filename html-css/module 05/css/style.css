@@ -14,19 +14,11 @@ html {
     clear: both;
 }
 
-body {
-    min-width: 1600px;
-}
-
-header {
-    width: 1170px;
+.page-nav {
+    width: 1110px;
     height: 78px;
     margin: 0px auto;
-    padding: 20px 30px 28px 30px;
-}
-
-.main-nav {
-    margin: 0px auto;
+    padding: 20px 0px 28px 0px;
 }
 
 .site-logo-link {
@@ -48,7 +40,7 @@ header {
     font-size: 30px;
 }
 
-.menu-list {
+.page-nav-list {
     margin: 0px;
     padding: 6px 0px;
     width: 490px;
@@ -56,17 +48,17 @@ header {
     list-style: none;
 }
 
-.menu-list li {
+.page-nav-list li {
     margin: 0px;
     padding: 0px;
     float: left;
 }
 
-.menu-list li:not(:last-child) {
+.page-nav-list li:not(:last-child) {
     margin-right: 34px;
 }
 
-.menu-list a {
+.page-nav-list a {
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
@@ -76,40 +68,32 @@ header {
     color: #0f0101;
 }
 
-.menu-list a:hover,
-.menu-list a:focus {
+.page-nav-list a:hover,
+.page-nav-list a:focus {
     color: #1abc9c;
 }
 
-.page-content {
-    min-width: 1170px;
-    margin: 0px auto;
-    padding: 0px;
-}
-
-.slider {
+.advertizing {
     display: block;
-    margin: 0px;
-    padding: 0px;
+    margin: 0px auto 92px;
+    padding: 0px 244px 0px 244px;
     width: 1600px;
     min-height: 600px;
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.522), rgba(0, 0, 0, 0.522)), url("../img/banner.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: cover;
 }
 
 .slider-menu {
     display: block;
-    width: 1170px;
-    margin: 0;
-    padding: 0 0 0 214px;
+    width: 1110px;
+    margin: 0px;
+    padding: 0px 0px 0px 180px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-75%);
     text-transform: uppercase;
+    top: 200px;
 }
 
 .slider-main-link {
@@ -119,18 +103,13 @@ header {
     font-family: serif;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .slider-menu-list {
     margin: 0;
     padding: 0;
-}
-
-.slider a {
-    text-decoration: none;
-    color: azure;
-    padding: 0px;
-    margin: 0px;
 }
 
 .slider-menu-item {
@@ -142,22 +121,54 @@ header {
 }
 
 .slider-menu-link {
+    font-family: "Roboto";
+    font-weight: 300;
     font-size: 24px;
     line-height: 54px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.slider-menu-link::after {
+    content: "\002F"
+}
+
+.slider-ctrl {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 104px;
+    height: 104px;
+    background-color: rgb(26, 188, 156);
+    opacity: 0.59;
+    position: absolute;
+}
+
+.slider-ctrl-prev {
+    top: 224px;
+    left: 244px;
+}
+
+.slider-ctrl-next {
+    top: 224px;
+    right: 244px;
+}
+
+.page-content {
+    /* width: 1170px; */
+    margin: 0px auto;
+    padding: 0px;
 }
 
 .products {
     margin: 0px auto 104px;
-    padding: 0px;
 }
 
 
 /* section name */
 
 .section-name {
-    display: block;
-    width: 1170px;
-    padding: 0;
+    padding: 0px;
     margin: 0px auto 92px auto;
     text-align: center;
     text-transform: uppercase;
@@ -179,10 +190,11 @@ header {
 /* section Products */
 
 .product-cards {
-    display: block;
+    width: 100%;
     list-style: none;
     margin: 0px auto;
     padding: 0px;
+    position: relative;
 }
 
 
