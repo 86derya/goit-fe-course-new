@@ -8,17 +8,29 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .clearfix::after {
     display: table;
     content: "";
     clear: both;
 }
 
-.page-nav {
-    width: 1110px;
+.page-header {
+    margin: 0 auto;
+    width: 100%;
+    background: darkturquoise;
+    position: relative;
+}
+
+.container {
+    width: 1170px;
     height: 78px;
     margin: 0px auto;
-    padding: 20px 0px 28px 0px;
+    padding: 20px 30px 28px 30px;
 }
 
 .site-logo-link {
@@ -73,30 +85,45 @@ html {
     color: #1abc9c;
 }
 
-.advertizing {
-    display: block;
-    margin: 0px auto 92px;
-    padding: 0px 244px 0px 244px;
-    width: 1600px;
+
+/* banner */
+
+.banner {
     min-height: 600px;
-    position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.522), rgba(0, 0, 0, 0.522)), url("../img/banner.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-.slider-menu {
+
+/* page content */
+
+.page-content {
+    margin: 0 auto;
+    padding: 0px 30px;
+    width: 1170px;
+}
+
+.advertizing {
+    display: block;
+    margin: 0px auto 92px;
+    padding: 0px;
+    position: relative;
+    top: -390px;
+}
+
+.slider {
     display: block;
     width: 1110px;
     margin: 0px;
-    padding: 0px 0px 0px 180px;
-    position: absolute;
+    padding: 0px 160px 0px 160px;
     text-transform: uppercase;
-    top: 200px;
 }
 
-.slider-main-link {
+.slider-name {
+    margin: 0;
+    padding: 0;
     text-align: left;
     font-size: 60px;
     line-height: 82px;
@@ -129,7 +156,7 @@ html {
     color: #ffffff;
 }
 
-.slider-menu-link::after {
+.slider-menu-link:not(:last-child)::after {
     content: "\002F"
 }
 
@@ -140,24 +167,17 @@ html {
     width: 104px;
     height: 104px;
     background-color: rgb(26, 188, 156);
-    opacity: 0.59;
     position: absolute;
+    top: 24px;
 }
 
 .slider-ctrl-prev {
-    top: 224px;
-    left: 244px;
+    opacity: 0.59;
 }
 
 .slider-ctrl-next {
-    top: 224px;
-    right: 244px;
-}
-
-.page-content {
-    /* width: 1170px; */
-    margin: 0px auto;
-    padding: 0px;
+    position: absolute;
+    right: 0px;
 }
 
 .products {
