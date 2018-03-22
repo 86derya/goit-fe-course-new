@@ -94,6 +94,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: relative;
 }
 
 
@@ -107,21 +108,23 @@ body {
 
 .advertizing {
     display: block;
-    margin: 0px auto 92px;
+    margin: 0px auto 0px;
     padding: 0px;
-    position: relative;
-    top: -390px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .slider {
     display: block;
     width: 1110px;
-    margin: 0px;
+    margin: 0px auto;
     padding: 0px 160px 0px 160px;
     text-transform: uppercase;
 }
 
-.slider-name {
+.slider-link {
     margin: 0;
     padding: 0;
     text-align: left;
@@ -156,36 +159,37 @@ body {
     color: #ffffff;
 }
 
-.slider-menu-link:not(:last-child)::after {
-    content: "\002F"
+.slider-menu-link::after {
+    content: "\002F";
 }
 
 .slider-ctrl {
-    border: 0px;
+    border: none;
     margin: 0px;
     padding: 0px;
     width: 104px;
     height: 104px;
-    background-color: rgb(26, 188, 156);
+    background-color: rgba(26, 188, 156, 0.59);
     position: absolute;
     top: 24px;
 }
 
-.slider-ctrl-prev {
-    opacity: 0.59;
+.slider-ctrl:active {
+    background: rgb(26, 188, 156);
+    border: none;
+}
+
+.slider-ctrl:focus {
+    background: rgb(26, 188, 156);
 }
 
 .slider-ctrl-next {
-    position: absolute;
     right: 0px;
 }
 
 .products {
-    margin: 0px auto 104px;
+    margin: 94px auto 0px;
 }
-
-
-/* section name */
 
 .section-name {
     padding: 0px;
@@ -205,9 +209,6 @@ body {
     height: 8px;
     line-height: 32px;
 }
-
-
-/* section Products */
 
 .product-cards {
     width: 100%;
@@ -282,4 +283,36 @@ body {
 
 .product-link:focus .product-price {
     background-color: #7fd9c7;
+}
+
+.blue-shirt {
+    margin: 0 auto;
+    padding: 0;
+    width: 255px;
+    height: 282px;
+    background-color: yellow;
+}
+
+.ovrl-menu-wrapper {
+    margin: 0 auto;
+    padding: 0;
+    width: 166px;
+    height: 106px;
+    background-color: teal;
+}
+
+.overlay-icon {
+    display: inline-block;
+    color: #ffffff;
+    background-color: #515151;
+    border: 1px solid red;
+    margin: 0;
+    padding: 8px 0 0 8px;
+    width: 50px;
+    height: 50px;
+}
+
+.overlay-button {
+    width: 166px;
+    height: 50px;
 }
