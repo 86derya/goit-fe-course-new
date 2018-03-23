@@ -86,7 +86,6 @@ header {
 .products {
     margin: 0px auto 104px;
     padding: 0px;
-    width: 1170px;
 }
 
 
@@ -94,7 +93,6 @@ header {
 
 .section-name {
     display: block;
-    width: 1170px;
     padding: 0;
     margin: 0px auto 92px auto;
     text-align: center;
@@ -194,8 +192,8 @@ header {
 /* news section */
 
 .news {
-    width: 1170px;
     padding: 0px;
+    margin-bottom: 20px;
 }
 
 .news-cards {
