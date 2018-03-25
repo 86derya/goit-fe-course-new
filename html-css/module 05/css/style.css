@@ -309,16 +309,15 @@ body {
 
 .overlay {
     margin: 0;
-    padding: 10px;
-    width: 255px;
-    height: 282px;
+    padding: 0;
+    width: 235px;
+    height: 262px;
     position: absolute;
-    border-width: 10px;
-    border-color: rgb(255, 255, 255);
-    border-style: solid;
     background-color: rgba(0, 0, 0, 0.549);
     top: 0px;
     opacity: 0;
+    top: 10px;
+    left: 10px;
 }
 
 .ovrl-menu-wrapper {
