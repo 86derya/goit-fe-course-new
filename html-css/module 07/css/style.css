@@ -198,7 +198,7 @@ body {
 }
 
 .section-name {
-    margin: 0px;
+    margin: 0px 0 76px;
     padding: 0;
     text-align: center;
 }
@@ -310,13 +310,12 @@ body {
 
 .contact-section {
     margin: 0 auto;
-    padding: 106px 0 114px;
+    padding: 106px 0 0;
     background-color: #222222;
     width: 100%;
-    min-height: 676px;
 }
 
-.section-name {
+*/ .section-name {
     margin: 0 0 78px;
     padding: 0;
     width: 100%;
@@ -327,13 +326,19 @@ body {
     color: #ffffff;
 }
 
-.section-form {
+.wrapper {
+    display: block;
     margin: 0 auto;
-    padding: 0 0;
-    width: 940px;
+    padding: 0 0 114px;
+    max-width: 1400px;
+    background-image: url('../img/Map Image.png');
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 .contact-form {
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     padding: 0;
     min-height: 308px;
@@ -439,17 +444,4 @@ body {
     font-size: 18px;
     line-height: 22px;
     color: #ffffff;
-}
-
-.contact-form-bg-img {
-    display: block;
-    margin: 0;
-    padding: 0;
-    background-image: url('../img/Map Image.png');
-    min-width: 614px;
-    min-height: 538px;
-    background-repeat: no-repeat;
-    position: absolute;
-    right: -230px;
-    top: -144px;
 }
