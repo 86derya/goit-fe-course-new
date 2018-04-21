@@ -1,0 +1,56 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.content {
+    background-color: yellow;
+    min-height: 50vh;
+    text-align: center;
+    line-height: 50vh;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sidebar {
+    background-color: lightgreen;
+    min-height: 50vh;
+    text-align: center;
+    line-height: 50vh;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+@media(min-width:768px) {
+    .row>[class*="col-"] {
+        padding: 0;
+    }
+    .content {
+        min-height: 100vh;
+        line-height: 100vh;
+    }
+    .sidebar {
+        min-height: 100vh;
+        line-height: 100vh;
+    }
+}
