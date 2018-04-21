@@ -333,6 +333,9 @@
         .partners-list {
             flex-wrap: wrap;
         }
+        .partner-section .row>[class*="col-"]:not(:nth-last-child(-n+3)) {
+            margin-bottom: 28px;
+        }
     }
     
     @media (min-width:942px) {
