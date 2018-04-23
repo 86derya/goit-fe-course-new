@@ -70,6 +70,7 @@ input[type="radio"].visually-hidden {
 }
 
 .account-entrance a {
+    display: inline-block;
     margin: 0;
     padding: 14px 18px;
     font-family: 'Montserrat', sans-serif;
@@ -117,6 +118,7 @@ input[type="radio"].visually-hidden {
 }
 
 .partner-search a {
+    display: inline-block;
     padding: 16px 50px;
     margin: 0 auto;
     background-color: #ff4e50;
