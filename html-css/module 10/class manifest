@@ -1,0 +1,75 @@
+
+link
+section
+list
+container
+button
+top-section
+page-header
+  container__header
+  page-logo
+  page-navigation
+  page-navigation__item
+  page-navigation__link
+  page-navigation__item-text
+  page-navigation__item-icon
+
+  banner
+    banner__text
+    banner__title
+    banner-button
+    banner-button--active
+
+  page-content
+    container__page-content
+    section
+    services-section
+      section-name services-section__name
+        section-name__pre-title
+        section-name__title
+        section-name__title--decor
+      list
+      services__list
+      services-card
+        services-card__icon
+        services-card__icon--photography
+        services-card__icon--web-design
+        services-card__icon--creativity
+        services-card__icon--seo
+        services-card__icon--csshtml
+        services-card__icon--digital
+        services-card__description
+        services-card__title
+        services-card__summary
+
+    team-section
+      section-name team-section__name
+        section-name__pre-title
+        section-name__title
+        section-name__title--decor
+      team-section__description
+      list
+      team__list
+      team-card
+        team-card__photo-wrap
+        team-card__photo
+        social-list
+          social__item
+          social__link
+          social__icon
+        team-card__name
+        team-card__position
+
+    page-footer
+    container__page-footer
+    copyright
+      copyright__text
+      copyright__text--decor
+    subscribe
+      subscribe__email
+      subscribe-button
+
+
+
+
+
