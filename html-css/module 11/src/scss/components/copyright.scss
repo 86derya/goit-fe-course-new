@@ -1,0 +1,14 @@
+.copyright {
+    margin: 0;
+    padding: 0;
+    &__text {
+        font-family: $primary-font;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: $primary-dark-color;
+    }
+    &__text-decor {
+        color: $secondary-accent-color;
+    }
+}

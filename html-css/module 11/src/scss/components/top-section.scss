@@ -1,0 +1,11 @@
+.top {
+    margin: 0 auto 54px;
+    min-height: 1000px;
+    background-image: linear-gradient($primary-dark-bg, $primary-light-bg), url("../img/bannerbg@1x.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @media (min-resolution: 192dpi), (min-resolution: 2dppx) {
+        background-image: linear-gradient($primary-dark-bg, $primary-light-bg), url("../img/bannerbg@2x.jpg");
+    }
+}

@@ -1,0 +1,32 @@
+/*
+   Import partials below
+*/
+
+
+/* HELPERS*/
+
+@import "src/scss/helpers/placeholders";
+
+/* BASE STYLES*/
+
+@import 'src/scss/base/normalize';
+@import "src/scss/base/colors";
+@import "src/scss/base/basic";
+@import "src/scss/base/fonts";
+
+/* COMPONENTS*/
+
+@import "src/scss/components/top-section";
+@import "src/scss/components/header";
+@import "src/scss/components/page-nav";
+@import "src/scss/components/logo";
+@import "src/scss/components/site-navigation";
+@import "src/scss/components/banner";
+@import "src/scss/components/main";
+@import "src/scss/components/section";
+@import "src/scss/components/services-section";
+@import "src/scss/components/team-section";
+@import "src/scss/components/team-socials";
+@import "src/scss/components/footer";
+@import "src/scss/components/subscribe-form";
+@import "src/scss/components/copyright";

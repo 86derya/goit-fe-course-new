@@ -1,0 +1,72 @@
+.team {
+    padding: 0 0 82px 0;
+    &__list {
+        @extend %list;
+        width: 100%;
+    }
+    &__item {
+        max-width: 380px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        &:not(:nth-child(3n)) {
+            margin-right: 30px;
+        }
+        &:not(:nth-last-child(-n+3)) {
+            margin-bottom: 26px;
+        }
+        &-photo_wrap {
+            margin: 0 auto 30px;
+            padding: 0;
+            max-width: 380px;
+            max-height: 470px;
+            position: relative;
+            background-image: linear-gradient($primary-dark-bg, $primary-light-bg);
+            -webkit-transition-duration: 0.2s;
+            -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+        }
+        &-photo_wrap:hover {
+            transform: translateX(-10px) translateY(-10px);
+            box-shadow: 10px 10px 0px 0px $primary-border-color;
+            transition-duration: 0.2s;
+        }
+        &-photo_wrap:hover &-photo {
+            opacity: 0.1;
+            -webkit-transition-duration: 0.2s;
+            -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+        }
+        &-photo_wrap:hover .socials {
+            opacity: 1;
+            -webkit-transition-duration: 0.2s;
+            -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+        }
+        &-photo {
+            opacity: 1;
+            -webkit-transition-duration: 0.2s;
+            -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+        }
+        &-name {
+            margin: 0 auto 14px;
+            padding: 0;
+            font-family: $primary-font;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: $primary-dark-color;
+            text-transform: uppercase;
+        }
+        &-position {
+            margin: 0;
+            padding: 0;
+            font-family: $auxilary-font;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 24px;
+            color: $secondary-dark-color;
+        }
+    }
+}

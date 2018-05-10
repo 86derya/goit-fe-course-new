@@ -1,0 +1,52 @@
+.section {
+    padding: 0;
+    width: 100%;
+    &__name {
+        margin: 0px 0px 64px 0px;
+        padding: 0;
+        text-align: center;
+        color: $primary-dark-color;
+    }
+    &__pre-title {
+        margin: 0px auto;
+        padding: 0;
+        font-family: $secondary-font, cursive;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 24px;
+        line-height: 28px;
+    }
+    &__title {
+        display: block;
+        margin: 0px auto;
+        padding: 20px 0 40px 0px;
+        font-family: $primary-font;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        font-style: normal;
+        text-transform: uppercase;
+    }
+    &__title::after {
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        content: "";
+        max-width: 60px;
+        height: 3px;
+        background-color: $primary-dark-bg;
+        position: relative;
+        top: 40px;
+    }
+    &__description {
+        width: 100%;
+        margin: 0 auto 94px;
+        padding: 0 130px;
+        font-family: $auxilary-font;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 24px;
+        color: $secondary-dark-color;
+        text-align: center;
+    }
+}
