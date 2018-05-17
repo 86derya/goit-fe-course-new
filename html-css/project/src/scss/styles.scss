@@ -1,0 +1,47 @@
+    /*
+   Import partials below
+*/
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    @font-face {
+        font-family: 'Museo_900';
+        src: url('../fonts/museosanscyrl_900.woff2') format("woff2");
+    }
+    
+    %title {
+        font-family: 'Museo_900', serif;
+        text-transform: uppercase;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    @import '../precss/_smartgrid.scss';
+    @import "colors";
+    //  Section-Text_Reviews (block #13)
+    .text-reviews {
+        // @include reset();
+        background-image: url("../img/text_reviws320bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+        &__title {
+            @extend %title;
+            @include col();
+            @include size(12);
+            @include size-sm(10);
+            &::before {
+                content: "";
+                display: inline-block;
+                border-bottom: 4px solid $main-blue;
+                width: 16px;
+                position: relative;
+                bottom: -4px;
+            }
+        }
+    }
