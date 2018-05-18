@@ -2,9 +2,9 @@
    Import partials below
 */
 
-body {
-  margin: 0;
-  padding: 0;
+@font-face {
+  font-family: 'Museo_300';
+  src: url("../fonts/museosanscyrl_300.woff2") format("woff2");
 }
 
 @font-face {
@@ -12,31 +12,295 @@ body {
   src: url("../fonts/museosanscyrl_900.woff2") format("woff2");
 }
 
-.text-reviews__title {
-  font-family: 'Museo_900', serif;
-  text-transform: uppercase;
-  margin: 0 auto;
+@font-face {
+  font-family: 'OpenSans_ExB';
+  src: url("../fonts/opensans-extrabold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'OpenSans_SmB';
+  src: url("../fonts/opensans-semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'ProximaNova_ExB';
+  src: url("../fonts/ProximaNova-Extrabld.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'ProximaNova_R';
+  src: url("../fonts/ProximaNova-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Ubuntu-mono_B';
+  src: url("../fonts/ubuntumono-bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'Ubuntu-mono_R';
+  src: url("../fonts/ubuntumono-regular.woff2") format("woff2");
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
   padding: 0;
-  text-align: center;
-  display: inline-block;
 }
 
-.text-reviews {
-  background-image: url("../img/text_reviws320bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0 auto;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.text-reviews__title {
+fieldset,
+img,
+abbr {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ul li {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+legend {
+  color: #000;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.item {
   box-sizing: border-box;
   word-wrap: break-word;
   margin-left: 0px;
   margin-right: 0px;
-  width: calc(100% - 0px);
 }
 
-.text-reviews__title::before {
+.flex {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body body,
+body div,
+body dl,
+body dt,
+body dd,
+body ul,
+body li,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body pre,
+body code,
+body form,
+body fieldset,
+body input,
+body textarea,
+body p,
+body blockquote,
+body th,
+body td {
+  margin: 0;
+  padding: 0;
+}
+
+body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body fieldset,
+body img,
+body abbr {
+  border: 0;
+}
+
+body address,
+body caption,
+body cite,
+body code,
+body dfn,
+body em,
+body strong,
+body th,
+body var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+body ul li {
+  list-style: none;
+}
+
+body caption,
+body th {
+  text-align: left;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+body sup {
+  vertical-align: text-top;
+}
+
+body sub {
+  vertical-align: text-bottom;
+}
+
+body input,
+body textarea,
+body select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+body legend {
+  color: #000;
+}
+
+body article,
+body aside,
+body details,
+body figcaption,
+body figure,
+body footer,
+body header,
+body hgroup,
+body menu,
+body nav,
+body section,
+body main {
+  display: block;
+}
+
+body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-reviews__title,
+.prices__title,
+.difference__title {
+  font-family: "Museo_900";
+  font-size: 25px;
+  color: blue;
+  width: calc(100% - 0px);
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.text-reviews__title::before,
+.prices__title::before,
+.difference__title::before {
   content: "";
   display: inline-block;
   border-bottom: 4px solid #00bcd4;
@@ -45,13 +309,442 @@ body {
   bottom: -4px;
 }
 
+.prices__title::after {
+  content: "";
+  display: block;
+  border-bottom: 2px solid #fff;
+  width: 150px;
+  margin: 0 auto;
+  padding-top: 12px;
+}
+
+.read_more-button,
+.start_study-button,
+.bundle-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.prices__payment-link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.prices__payment-link--cash,
+.prices__payment-link--card,
+.prices__payment-link--transfer {
+  display: inline-block;
+  height: 46px;
+  width: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.wrapper {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.text-reviews {
+  background-image: url("../img/text_reviws320bg.png");
+  background-size: cover;
+  background-repeat: repeat;
+  margin: 0 auto;
+  padding-top: 56px;
+  padding-bottom: 120px;
+}
+
+.text-reviews__slogan {
+  padding: 30px 0 36px;
+  text-transform: uppercase;
+}
+
+.text-reviews__item {
+  background: #fff;
+  background-position-y: 30px;
+  padding: 48px 15px 16px;
+  margin-top: 72px;
+  text-align: center;
+  position: relative;
+}
+
+.text-reviews__item-image {
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: -48px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.text-reviews__item-name {
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 10px 10px 6px;
+  background-color: black;
+  color: blue;
+}
+
+.text-reviews__item-proffesion {
+  color: yellow;
+  margin-bottom: 14px;
+}
+
+.text-reviews__item-review {
+  padding-bottom: 48px;
+  font-family: "OpenSans_ExB";
+  font-size: 14px;
+  color: green;
+}
+
+.text-reviews__item .text-reviews__item-review {
+  text-align: left;
+}
+
+.read_more-button {
+  margin-bottom: 16px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  border-bottom: 1px solid #000;
+  display: block;
+  text-align: right;
+  position: absolute;
+  bottom: 0px;
+  right: 15px;
+}
+
+.start_study-button {
+  width: 290px;
+  padding: 20px 0;
+  text-transform: uppercase;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  background-image: linear-gradient 0deg, #ffc617 0%, #fb0740 100%;
+  background-image: -webkit-linear-gradient(0deg, #ffc617 0%, #fb0740 100%);
+  box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.prices {
+  background-image: url("../img/prices320bg.png");
+  background-size: cover;
+  background-repeat: repeat;
+  margin: 0 auto;
+  padding: 60px 0;
+  color: white;
+}
+
+.prices__title {
+  color: white;
+  padding-bottom: 16px;
+}
+
+.prices__pretitle {
+  text-transform: uppercase;
+  font-family: Museo_900;
+  font-size: 14px;
+  color: red;
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.prices__warranty {
+  font-family: OpenSans_ExB;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 31px;
+}
+
+.prices--accent-size {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.prices--accent-color {
+  color: #00bcd4;
+}
+
+.prices__schedule {
+  display: block;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  background-color: #3c3c3c;
+  box-shadow: 0px 20px 36px 0px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.prices__payment-title {
+  width: calc(66.66667% - 0px);
+  display: block;
+  margin: 0 auto;
+  padding-top: 34px;
+  padding-bottom: 16px;
+  font-family: OpenSans_ExB;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.prices__payment-list {
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+}
+
+.prices__payment-item {
+  padding-top: 20px;
+  padding-bottom: 26px;
+  text-align: center;
+  background: #2a292c;
+  border-bottom: 1px solid #403f42;
+}
+
+.prices__payment-link {
+  font-family: Ubuntu-mono_R;
+  font-size: 16px;
+  color: #fff;
+  padding-top: 18px;
+  text-align: center;
+}
+
+.prices__payment-link--cash {
+  background-image: url("../img/wallet.png");
+}
+
+.prices__payment-link--card {
+  background-image: url("../img/credit-card.png");
+}
+
+.prices__payment-link--transfer {
+  background-image: url("../img/rich.png");
+  position: relative;
+}
+
+.prices__payment-link--transfer::before {
+  display: inline-block;
+  content: "";
+  height: 32px;
+  width: 32px;
+  background-image: url("../img/stopwatch.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 8px;
+  left: -16px;
+}
+
+.bundle-list {
+  display: block;
+}
+
+.bundle {
+  width: calc(100% - 0px);
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  text-align: center;
+  background-color: #313133;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+}
+
+.bundle:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.bundle__name {
+  padding-top: 24px;
+  padding-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #3c3c3c;
+  border-bottom: 1px solid #464648;
+}
+
+.bundle__skills-list {
+  padding-top: 42px;
+}
+
+.bundle__skills-item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.bundle__text-box {
+  display: inline-block;
+  margin-top: 26px;
+  margin-bottom: 30px;
+  padding: 14px 54px;
+  background-image: url("../img/bundle_text-box.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.bundle__career-list {
+  text-align: left;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.bundle__career-item {
+  padding: 28px 0 26px 16px;
+  font-family: "Ubuntu-mono_R";
+  font-size: 14px;
+  color: #c0c0c0;
+  background-color: #2b2b2d;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.14);
+}
+
+.bundle__career-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.bundle__price {
+  padding-top: 30px;
+  padding-bottom: 24px;
+  font-family: Museo_900;
+  font-size: 36px;
+  color: #ffc600;
+}
+
+.bundle__price--offline {
+  color: #5cc497;
+}
+
+.bundle-button {
+  font-family: Museo_900;
+  font-size: 16px;
+  color: #fff;
+  padding-top: 18px;
+  padding-bottom: 20px;
+  width: 240px;
+  text-transform: uppercase;
+  background-image: linear-gradient 0deg, #ffc617 0%, #fb0740 100%;
+  background-image: -webkit-linear-gradient(0deg, #ffc617 0%, #fb0740 100%);
+  box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
+  border-radius: 5px;
+}
+
+.difference {
+  padding-top: 56px;
+  background: #fff;
+}
+
+.difference__title {
+  padding-bottom: 56px;
+}
+
+.difference__item-title {
+  display: block;
+  font-family: Ubuntu-mono_R;
+  font-size: 20px;
+  color: #242427;
+}
+
+.difference__item-title::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  width: 80px;
+  height: 2px;
+  background: #00bcd4;
+}
+
+.difference__item-summary {
+  padding-top: 20px;
+}
+
+.difference__item-list {
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 320px) {
+  .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 @media screen and (min-width: 768px) {
-  .text-reviews__title {
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .item {
     margin-left: 15px;
     margin-right: 15px;
   }
 
-  .text-reviews__title {
-    width: calc(83.33333% - 30px);
+  .text-reviews__title,
+  .prices__title,
+  .difference__title {
+    width: calc(75% - 30px);
+  }
+
+  .wrapper {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .prices__payment-list {
+    display: flex;
+  }
+
+  .prices__payment-item {
+    display: flex;
+  }
+
+  .prices__payment-item {
+    padding-left: 55px;
+  }
+
+  .prices__payment-item {
+    border-border: none;
+  }
+
+  .prices__payment-item {
+    flex-grow: 1;
+  }
+
+  .prices__payment-item:not(:last-child) {
+    border-right: 1px solid #403f42;
+  }
+
+  .prices__payment-link {
+    margin-left: 28px;
+  }
+
+  .bundle-list {
+    display: flex;
+  }
+
+  .bundle-list {
+    margin: 0 -15px;
+  }
+
+  .bundle {
+    width: calc(50% - 30px);
+  }
+
+  .bundle:not(:last-child) {
+    margin-bottom: 0px;
   }
 }

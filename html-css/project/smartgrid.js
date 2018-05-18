@@ -14,7 +14,7 @@ var settings = {
     container: {
         maxWidth: '1150px',
         /* max-width оn very large screen */
-        fields: '0px' /* side fields */
+        fields: '15px' /* side fields */
     },
     breakPoints: {
         lg: {
@@ -24,11 +24,11 @@ var settings = {
         sm: {
             width: '768px',
             offset: '30px',
-            fields: '0px' /* set fields only if you want to change container.fields */
+            fields: '32px' /* set fields only if you want to change container.fields */
         },
         xs: {
             width: '320px',
-            fields: '0px'
+            fields: '15px'
         }
         /* 
         We can create any quantity of break points.
