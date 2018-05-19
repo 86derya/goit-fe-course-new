@@ -459,7 +459,7 @@ body img {
 
 .prices__pretitle {
   text-transform: uppercase;
-  font-family: Museo_900;
+  font-family: "Museo_900";
   font-size: 14px;
   color: red;
   text-align: center;
@@ -467,7 +467,7 @@ body img {
 }
 
 .prices__warranty {
-  font-family: OpenSans_ExB;
+  font-family: "OpenSans_ExB";
   font-size: 14px;
   color: #fff;
   margin-bottom: 31px;
@@ -498,7 +498,7 @@ body img {
   margin: 0 auto;
   padding-top: 34px;
   padding-bottom: 16px;
-  font-family: OpenSans_ExB;
+  font-family: "OpenSans_ExB";
   font-size: 16px;
   color: #fff;
   text-transform: uppercase;
@@ -518,7 +518,7 @@ body img {
 }
 
 .prices__payment-link {
-  font-family: Ubuntu-mono_R;
+  font-family: "Ubuntu-mono_R";
   font-size: 16px;
   color: #fff;
   padding-top: 18px;
@@ -619,7 +619,7 @@ body img {
 .bundle__price {
   padding-top: 30px;
   padding-bottom: 24px;
-  font-family: Museo_900;
+  font-family: "Museo_900";
   font-size: 36px;
   color: #ffc600;
 }
@@ -629,7 +629,7 @@ body img {
 }
 
 .bundle-button {
-  font-family: Museo_900;
+  font-family: "Museo_900";
   font-size: 16px;
   color: #fff;
   padding-top: 18px;
@@ -644,6 +644,7 @@ body img {
 
 .difference {
   padding-top: 56px;
+  padding-bottom: 56px;
   background: #fff;
 }
 
@@ -651,11 +652,22 @@ body img {
   padding-bottom: 56px;
 }
 
+.difference__list {
+  padding-top: 10px;
+  padding-bottom: 52px;
+  border-bottom: 2px solid #242427;
+}
+
+.difference__item:not(:last-child) {
+  padding-bottom: 30px;
+}
+
 .difference__item-title {
   display: block;
-  font-family: Ubuntu-mono_R;
+  font-family: "Ubuntu-mono_R";
   font-size: 20px;
   color: #242427;
+  margin-bottom: 20px;
 }
 
 .difference__item-title::after {
@@ -668,11 +680,48 @@ body img {
 }
 
 .difference__item-summary {
-  padding-top: 20px;
+  font-family: "OpenSans_ExB";
+  font-size: 14px;
+  color: #242427;
 }
 
 .difference__item-list {
   padding-top: 10px;
+}
+
+.difference__item-list li {
+  padding-left: 40px;
+  position: relative;
+}
+
+.difference__item-list li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.difference__item-list li::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: #242427;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+}
+
+.difference__notice {
+  display: block;
+  margin: 0 auto;
+  padding-top: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.difference__notice-title {
+  text-transform: uppercase;
+  font-family: "OpenSans_ExB";
+  font-size: 14px;
+  color: #242427;
 }
 
 @media screen and (min-width: 320px) {
@@ -746,5 +795,75 @@ body img {
 
   .bundle:not(:last-child) {
     margin-bottom: 0px;
+  }
+
+  .difference__list {
+    border-bottom: none;
+  }
+
+  .difference__item-summary {
+    width: calc(91.66667% - 30px);
+  }
+
+  .difference__notice {
+    width: 624px;
+  }
+
+  .difference__notice {
+    height: 216px;
+  }
+
+  .difference__notice {
+    padding-top: 40px;
+  }
+
+  .difference__notice {
+    padding-left: 40px;
+  }
+
+  .difference__notice {
+    padding-right: 40px;
+  }
+
+  .difference__notice {
+    padding-bottom: 24px;
+  }
+
+  .difference__notice {
+    background-image: url("../img/difference__notice 768.png");
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .difference__notice {
+    margin-right: 66px;
+  }
+
+  .difference__notice {
+    width: 852px;
+  }
+
+  .difference__notice {
+    height: 248px;
+  }
+
+  .difference__notice {
+    padding-top: 40px;
+  }
+
+  .difference__notice {
+    padding-left: 62px;
+  }
+
+  .difference__notice {
+    padding-right: 62px;
+  }
+
+  .difference__notice {
+    padding-bottom: 24px;
+  }
+
+  .difference__notice {
+    background-image: url("../img/difference notice lg.png");
   }
 }

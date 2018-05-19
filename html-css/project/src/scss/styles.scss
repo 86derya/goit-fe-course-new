@@ -182,14 +182,14 @@
         }
         &__pretitle {
             text-transform: uppercase;
-            @include font-mixin(Museo_900,
+            @include font-mixin("Museo_900",
             14px,
             red);
             text-align: center;
             margin-bottom: 52px;
         }
         &__warranty {
-            @include font-mixin(OpenSans_ExB,
+            @include font-mixin("OpenSans_ExB",
             14px,
             #fff);
             margin-bottom: 31px;
@@ -216,7 +216,7 @@
             margin: 0 auto;
             padding-top: 34px;
             padding-bottom: 16px;
-            @include font-mixin(OpenSans_ExB,
+            @include font-mixin("OpenSans_ExB",
             16px,
             #fff);
             text-transform: uppercase;
@@ -248,7 +248,7 @@
         }
         &__payment-link {
             @extend %link;
-            @include font-mixin(Ubuntu-mono_R,
+            @include font-mixin("Ubuntu-mono_R",
             16px,
             #fff);
             padding-top: 18px;
@@ -350,7 +350,7 @@
         &__price {
             padding-top: 30px;
             padding-bottom: 24px;
-            @include font-mixin(Museo_900,
+            @include font-mixin("Museo_900",
             36px,
             #ffc600);
             &--offline {
@@ -361,7 +361,7 @@
     
     .bundle-button {
         @extend %button;
-        @include font-mixin(Museo_900,
+        @include font-mixin("Museo_900",
         16px,
         #fff);
         padding-top: 18px;
@@ -375,6 +375,7 @@
     } // differences
     .difference {
         padding-top: 56px;
+        padding-bottom: 56px;
         background: #fff;
         &__title {
             @extend %title;
@@ -383,15 +384,26 @@
                 @extend %title--before;
             }
         }
-        &__list {}
+        &__list {
+            padding-top: 10px;
+            padding-bottom: 52px;
+            border-bottom: 2px solid #242427;
+            & {
+                @include sm(border-bottom,
+                none);
+            }
+        }
         &__item {
+            &:not(:last-child) {
+                padding-bottom: 30px;
+            }
             // TODO h3 ubunto bold
             &-title {
                 display: block;
-                @include font-mixin(Ubuntu-mono_R,
+                @include font-mixin("Ubuntu-mono_R",
                 20px,
                 #242427);
-                // margin-bottom: 20px;
+                margin-bottom: 20px;
                 &::after {
                     content: "";
                     display: block;
@@ -402,10 +414,74 @@
                 }
             }
             &-summary {
-                padding-top: 20px;
+                // semibold
+                @include size-sm(11);
+                @include font-mixin("OpenSans_ExB",
+                14px,
+                #242427)
             }
             &-list {
                 padding-top: 10px;
+                & li {
+                    padding-left: 40px;
+                    position: relative;
+                }
+                & li:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+                & li::before {
+                    content: "";
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    background: #242427;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 0px;
+                }
+            }
+        }
+        &__notice {
+            display: block;
+            margin: 0 auto;
+            padding-top: 8px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            @include sm(width,
+            624px);
+            @include sm(height,
+            216px);
+            @include sm(padding-top,
+            40px);
+            @include sm(padding-left,
+            40px);
+            @include sm(padding-right,
+            40px);
+            @include sm(padding-bottom,
+            24px);
+            @include sm(background-image,
+            url("../img/difference__notice\ 768.png"));
+            @include lg(margin-right,
+            66px);
+            @include lg(width,
+            852px);
+            @include lg(height,
+            248px);
+            @include lg(padding-top,
+            40px);
+            @include lg(padding-left,
+            62px);
+            @include lg(padding-right,
+            62px);
+            @include lg(padding-bottom,
+            24px);
+            @include lg(background-image,
+            url("../img/difference\ notice\ lg.png"));
+            &-title {
+                text-transform: uppercase;
+                @include font-mixin("OpenSans_ExB",
+                14px,
+                #242427);
             }
         }
     }
