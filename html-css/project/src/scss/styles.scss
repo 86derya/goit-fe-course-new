@@ -78,19 +78,37 @@
         background-repeat: repeat;
         margin: 0 auto;
         padding-top: 56px;
-        padding-bottom: 120px; // &__title {}
+        padding-bottom: 64px;
+        @include sm( padding-bottom,
+        72px);
+        @include lg( padding-bottom,
+        94px);
+        // &__title {}
         // &__list {}
         &__slogan {
-            padding: 30px 0 36px;
+            margin-bottom: 36px;
+            @include lg(margin-bottom,
+            0px);
+            @include sm(margin-bottom,
+            40px);
+            @include sm(padding-top,
+            12px);
+            @include sm(padding-bottom,
+            8px);
             text-transform: uppercase;
             &-wrapper {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 justify-content: center;
                 @include lg(justify-content,
                 space-between);
                 @include lg(flex-flow,
                 row-reverse);
+                @include sm(margin-top,
+                10px);
+                @include lg(margin-top,
+                0px);
             }
         }
         &__title {
@@ -99,6 +117,10 @@
                 @extend %title--before;
             }
         }
+        &__list {
+            padding-top: 72px;
+            padding-bottom: 40px;
+        }
     }
     
     .text-reviews__item {
@@ -106,15 +128,20 @@
         background: #fff;
         background-position-y: 30px;
         padding: 48px 15px 16px;
-        margin-top: 72px;
         text-align: center;
         position: relative;
+        box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
         @include sm(padding-left,
         206px);
         @include sm(padding-top,
         30px);
         @include sm(height,
         186px);
+        &:not(:last-child) {
+            margin-bottom: 72px;
+            @include sm(margin-bottom,
+            10px);
+        }
         &-image {
             display: block;
             margin: 0 auto;
