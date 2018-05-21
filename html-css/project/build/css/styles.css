@@ -369,7 +369,14 @@ body img {
   text-transform: uppercase;
 }
 
+.text-reviews__slogan-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .text-reviews__item {
+  box-sizing: border-box;
   background: #fff;
   background-position-y: 30px;
   padding: 48px 15px 16px;
@@ -392,9 +399,12 @@ body img {
   display: inline-block;
   text-align: center;
   margin-bottom: 8px;
-  padding: 10px 10px 6px;
+  padding: 0 10px;
   background-color: black;
-  color: blue;
+  font-family: "Ubuntu-mono_R";
+  font-size: 30px;
+  color: #00bcd4;
+  line-height: 36px;
 }
 
 .text-reviews__item-proffesion {
@@ -402,7 +412,12 @@ body img {
   margin-bottom: 14px;
 }
 
+.text-reviews__item-proffesion_cutted {
+  display: none;
+}
+
 .text-reviews__item-review {
+  display: block;
   padding-bottom: 48px;
   font-family: "OpenSans_ExB";
   font-size: 14px;
@@ -437,10 +452,6 @@ body img {
   background-image: linear-gradient 0deg, #ffc617 0%, #fb0740 100%;
   background-image: -webkit-linear-gradient(0deg, #ffc617 0%, #fb0740 100%);
   box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
 }
 
 .prices {
@@ -753,6 +764,67 @@ body img {
     padding-right: 32px;
   }
 
+  .text-reviews__item {
+    padding-left: 206px;
+  }
+
+  .text-reviews__item {
+    padding-top: 30px;
+  }
+
+  .text-reviews__item {
+    height: 186px;
+  }
+
+  .text-reviews__item-image {
+    left: 0px;
+  }
+
+  .text-reviews__item-image {
+    top: 0px;
+  }
+
+  .text-reviews__item-image {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .text-reviews__item-image {
+    width: 192px;
+  }
+
+  .text-reviews__item-image {
+    height: 186px;
+  }
+
+  .text-reviews__item-header {
+    display: flex;
+  }
+
+  .text-reviews__item-header {
+    justify-content: space-between;
+  }
+
+  .text-reviews__item-header {
+    align-items: center;
+  }
+
+  .text-reviews__item-name {
+    flex-grow: none;
+  }
+
+  .text-reviews__item-proffesion {
+    margin-bottom: 0px;
+  }
+
+  .text-reviews__item-proffesion {
+    font-size: 12px;
+  }
+
+  .text-reviews__item-review {
+    padding-bottom: 0px;
+  }
+
   .prices__payment-list {
     display: flex;
   }
@@ -835,6 +907,22 @@ body img {
 }
 
 @media screen and (min-width: 1920px) {
+  .text-reviews__slogan-wrapper {
+    justify-content: space-between;
+  }
+
+  .text-reviews__slogan-wrapper {
+    flex-flow: row-reverse;
+  }
+
+  .text-reviews__item-proffesion_cutted {
+    display: inline-block;
+  }
+
+  .start_study-button {
+    flex-direction: row-reverse;
+  }
+
   .difference__notice {
     margin-right: 66px;
   }
