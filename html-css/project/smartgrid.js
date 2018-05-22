@@ -5,7 +5,7 @@ var settings = {
     filename: "_smartgrid",
     outputStyle: 'scss',
     /* less || scss || sass || styl */
-    columns: 12,
+    columns: 2,
     /* number of grid columns */
     offset: '0px',
     /* gutter width px || % */
