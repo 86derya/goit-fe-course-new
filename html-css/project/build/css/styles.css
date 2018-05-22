@@ -1182,6 +1182,10 @@ body img {
     padding-top: 0px;
   }
 
+  .bundle:last-child .bundle__name {
+    background-color: #2a292c;
+  }
+
   .bundle__text-box {
     margin-top: 26px;
   }

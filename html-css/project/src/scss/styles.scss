@@ -519,6 +519,8 @@
             padding-left: 34px;
             @include sm(padding-left,
             0px);
+            @include lg(background-color,
+            #2a292c);
         }
         &__skills-list {
             padding-top: 42px;
