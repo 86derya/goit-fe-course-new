@@ -90,6 +90,8 @@
         &__list {
             padding-top: 72px;
             padding-bottom: 40px;
+            @include lg(padding-bottom,
+            82px)
         }
     }
     
@@ -638,7 +640,6 @@
             }
             &-summary {
                 // semibold
-                @include size-sm(6);
                 @include font-mixin("OpenSans_ExB",
                 14px,
                 #242427)

@@ -339,10 +339,10 @@ body img {
 }
 
 .wrapper {
-  max-width: 1150px;
+  max-width: 1759px;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 .text-reviews {
@@ -813,8 +813,8 @@ body img {
   }
 
   .wrapper {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 39px;
+    padding-right: 39px;
   }
 
   .text-reviews {
@@ -1078,10 +1078,6 @@ body img {
     border-bottom: none;
   }
 
-  .difference__item-summary {
-    width: calc(300% - 30px);
-  }
-
   .difference__notice {
     width: 624px;
   }
@@ -1124,6 +1120,10 @@ body img {
 
   .text-reviews__title {
     max-width: 860px;
+  }
+
+  .text-reviews__list {
+    padding-bottom: 82px;
   }
 
   .text-reviews__item-proffesion_cutted {
