@@ -1,711 +1,746 @@
-    /*
+            /*
    Import partials below
 */
-    
-    @import "../scss/fonts.scss";
-    @import "../precss/_smartgrid.scss";
-    @import "../scss/common.scss";
-    @import"../scss/colors.scss";
-    body {
-        margin: 0;
-        padding: 0;
-        @include reset();
-    }
-    
-    %title {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        text-transform: uppercase;
-        @include font-mixin('Museo_900', 25px, blue);
-        @include sm(font-size, 30px);
-        @include lg(font-size, 42px);
-    }
-    
-    %title--before-line {
-        content: "";
-        display: inline-block;
-        border-bottom: 4px solid $main-blue;
-        width: 16px;
-        position: relative;
-        bottom: -4px;
-    }
-    
-    // %pretitle-line {
-    //    
-    // }
-    %button {
-        margin: 0;
-        padding: 0;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        text-align: center;
-    }
-    
-    %link {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-        cursor: pointer;
-        color: inherit;
-    }
-    
-    %payment-icon {
-        display: inline-block;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-    }
-    
-    .wrapper {
-        @include wrapper();
-    }
-    
-    @import '../precss/_smartgrid.scss';
-    @import "colors"; //  Section-Text_Reviews (block #13)
-    .text-reviews {
-        background-image: url("../img/text_reviws320bg.png");
-        background-size: cover;
-        background-repeat: repeat;
-        margin: 0 auto;
-        padding-top: 56px;
-        padding-bottom: 64px;
-        @include sm( padding-bottom,
-        72px);
-        @include lg( padding-bottom,
-        94px);
-        &__title {
-            @extend %title;
-            max-width: 244px;
-            @include sm(max-width,
-            608px);
-            @include lg(max-width,
-            860px);
-            &::before {
-                @extend %title--before-line;
+            
+            @import "../scss/fonts.scss";
+            @import "../precss/_smartgrid.scss";
+            @import "../scss/common.scss";
+            @import"../scss/colors.scss";
+            body {
+                margin: 0;
+                padding: 0;
+                @include reset();
             }
-        }
-        &__list {
-            padding-top: 72px;
-            padding-bottom: 40px;
-            @include lg(padding-bottom,
-            82px)
-        }
-    }
-    
-    .text-reviews__item {
-        box-sizing: border-box;
-        background: #fff;
-        background-position-y: 30px;
-        padding: 48px 15px 16px;
-        text-align: center;
-        position: relative;
-        box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
-        @include sm(padding-left,
-        206px);
-        @include sm(padding-top,
-        30px);
-        @include sm(height,
-        186px);
-        &:not(:last-child) {
-            margin-bottom: 72px;
-            @include sm(margin-bottom,
-            10px);
-        }
-        &-image {
-            display: block;
-            margin: 0 auto;
-            position: absolute;
-            left: 50%;
-            top: -48px;
-            transform: translateX(-50%);
-            @include sm(left,
-            0px);
-            @include sm(top,
-            0px);
-            @include sm(transform,
-            translateX(0));
-            @include sm(width,
-            192px);
-            @include sm(height,
-            186px);
-        }
-        &-header {
-            @include sm(display,
-            flex);
-            // @include sm(flex-wrap,
-            // no-wrap);
-            @include sm(justify-content,
-            space-between);
-            @include sm(align-items,
-            center);
-        }
-        &-name {
-            display: inline-block;
-            text-align: center;
-            margin-bottom: 8px;
-            padding: 0 10px;
-            background-color: black;
-            @include font-mixin("Ubuntu-mono_R",
-            30px,
-            #00bcd4);
-            line-height: 36px;
-            @include sm(flex-grow,
-            none);
-        }
-        &-proffesion {
-            color: yellow;
-            margin-bottom: 14px;
-            @include sm(margin-bottom,
-            0px);
-            @include sm(font-size,
-            12px);
-            &_cutted {
-                display: none;
-                @include lg(display,
-                inline-block);
-            }
-        }
-        &-review {
-            display: block;
-            padding-bottom: 48px;
-            @include font-mixin('OpenSans_ExB',
-            14px,
-            green);
-            @include sm(padding-bottom,
-            0px)
-        }
-    }
-    
-    .text-reviews__item .text-reviews__item-review {
-        text-align: left;
-    }
-    
-    // &__title {}
-    // &__list {}
-    // &__slogan {
-    //     margin-bottom: 36px;
-    //     @include lg(margin-bottom,
-    //     0px);
-    //     @include sm(margin-bottom,
-    //     40px);
-    //     @include sm(padding-top,
-    //     12px);
-    //     @include sm(padding-bottom,
-    //     8px);
-    //     text-transform: uppercase;
-    .see_results {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        @include lg(justify-content,
-        space-between);
-        @include lg(flex-flow,
-        row-reverse);
-        @include sm(margin-top,
-        10px);
-        @include lg(margin-top,
-        0px);
-        @include lg(justify-content,
-        space-between);
-        &-slogan {
-            margin-bottom: 36px;
-            @include font-mixin(OpenSans_ExB,
-            14px,
-            #242427);
-            text-align: left;
-            @include sm(text-align,
-            center);
-            @include lg(margin-bottom,
-            0px);
-            @include sm(margin-bottom,
-            40px);
-            text-transform: uppercase;
-            &-link {
-                @extend %link;
-                @include sm(background-color,
-                #242427);
-                @include sm(color,
-                #ffffff);
-                @include sm(padding-top,
-                12px);
-                @include sm(padding-bottom,
-                8px);
-            }
-            &--topline {
-                @include sm(border-top,
-                2px solid #242427);
-                @include sm(padding-top,
-                10px);
-            }
-            &--underline {
-                @include sm(border-bottom,
-                2px solid #242427);
-                @include sm( padding-bottom,
-                6px);
-            }
-        }
-    }
-    
-    .read_more-button {
-        @extend %button;
-        margin-bottom: 16px;
-        padding: 0;
-        border: none;
-        cursor: pointer;
-        background-color: transparent;
-        border-bottom: 1px solid #000;
-        display: block;
-        text-align: right;
-        position: absolute;
-        bottom: 0px;
-        right: 15px;
-    }
-    
-    .start_study-button {
-        @extend %button;
-        width: 290px;
-        padding: 20px 0;
-        text-transform: uppercase;
-        color: white;
-        font-size: 14px;
-        border-radius: 5px;
-        background-image: linear-gradient ( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
-        background-image: -webkit-linear-gradient( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
-        box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
-    }
-    
-    .prices {
-        background-image: url("../img/prices320bg.png");
-        background-size: cover;
-        background-repeat: repeat;
-        margin: 0 auto;
-        padding: 60px 0;
-        color: white;
-        &__title {
-            @extend %title;
-            max-width: 290px;
-            @include sm(max-width,
-            520px);
-            @include lg(max-width,
-            726px);
-            color: white;
-            margin-bottom: 10px;
-            @include sm(margin-bottom,
-            34px);
-            @include lg(margin-bottom,
-            50px);
-            &::before {
-                @extend %title--before-line;
-            }
-        }
-        &__pretitle {
-            display: block;
-            margin: 0 auto;
-            text-transform: uppercase;
-            @include font-mixin("Museo_900",
-            14px,
-            red);
-            text-align: center;
-            margin-bottom: 52px;
-            @include sm(text-align,
-            right);
-            @include sm(width,
-            320px);
-            @include sm(padding-bottom,
-            4px);
-            @include sm(border-bottom,
-            2px solid #fff);
-            @include lg(width,
-            472px);
-            &::before {
+            
+            %title {
                 display: block;
+                margin: 0 auto;
+                text-align: center;
+                text-transform: uppercase;
+                @include font-mixin('Museo_900', 25px, blue);
+                @include sm(font-size, 30px);
+                @include lg(font-size, 42px);
+            }
+            
+            %title--before-line {
                 content: "";
-                height: 2px;
-                width: 150px;
-                margin: 0 auto 16px;
-                background-color: #fff;
-                @include sm(width,
-                320px);
-                @include lg(width,
-                472px);
-                @include sm(display,
-                none);
-            }
-        }
-        &__warranty {
-            @include font-mixin("OpenSans_ExB",
-            14px,
-            #fff);
-            margin-bottom: 31px;
-        }
-        &--accent-size {
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        &--accent-color {
-            color: #00bcd4;
-        }
-        &__schedule {
-            display: block;
-            padding-top: 26px;
-            padding-bottom: 26px;
-            background-color: #3c3c3c;
-            box-shadow: 0px 20px 36px 0px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        &__payment-title {
-            @include size(1.5);
-            @include size-sm(1);
-            display: block;
-            margin: 0 auto;
-            padding-top: 34px;
-            padding-bottom: 16px;
-            @include font-mixin("OpenSans_ExB",
-            16px,
-            #fff);
-            text-transform: uppercase;
-            text-align: center;
-        }
-        &__payment-list {
-            box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
-            @include sm(display,
-            flex);
-        }
-        &__payment-item {
-            // padding-top: 20px;
-            // padding-bottom: 26px;
-            text-align: center;
-            background: #2a292c;
-            border-bottom: 1px solid #403f42;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            @include sm(border-border,
-            none);
-            @include sm(flex-grow,
-            1);
-            @include lg(flex-direction,
-            row);
-            @include lg(padding-left,
-            55px);
-            &:not(:last-child) {
-                @include sm(border-right,
-                1px solid #403f42);
-            }
-            &:nth-child(1) {
-                padding-top: 20px;
-                padding-bottom: 24px;
-                @include sm(padding-top,
-                28px);
-                @include sm(padding-bottom,
-                28px);
-            }
-            &:nth-child(2) {
-                padding-top: 24px;
-                padding-bottom: 20px;
-                @include sm(padding-top,
-                28px);
-                @include sm(padding-bottom,
-                28px);
-            }
-            &:nth-child(3) {
-                padding-top: 10px;
-                padding-bottom: 28px;
-                @include sm(padding-top,
-                28px);
-                @include sm(padding-bottom,
-                28px);
-            }
-        }
-        &__payment-link {
-            @extend %link;
-            @include font-mixin("Ubuntu-mono_R",
-            16px,
-            #fff);
-            padding-top: 18px;
-            text-align: center;
-            @include lg(margin-left,
-            28px);
-            @include lg(padding-top,
-            0px);
-            &--cash {
-                @extend %payment-icon;
-                height: 45px;
-                width: 45px;
-                @include sm(height,
-                61px);
-                @include sm(width,
-                63px);
-                background-image: url("../img/wallet.png");
-            }
-            &--card {
-                height: 42px;
-                width: 50px;
-                background-image: url("../img/credit-card.png");
-                @extend %payment-icon;
-                @include sm(height,
-                65px);
-                @include sm(width,
-                72px);
-            }
-            &--transfer {
-                height: 47px;
-                width: 45px;
-                @include sm(height,
-                65px);
-                @include sm(width,
-                62px);
-                background-image: url("../img/rich.png");
-                @extend %payment-icon;
+                display: inline-block;
+                border-bottom: 4px solid $main-blue;
+                width: 16px;
                 position: relative;
-                &::before {
-                    display: inline-block;
-                    content: "";
-                    height: 32px;
-                    width: 32px;
-                    background-image: url("../img/stopwatch.png");
-                    background-size: contain;
-                    background-repeat: no-repeat;
+                bottom: -4px;
+            }
+            
+            // %pretitle-line {
+            //    
+            // }
+            %button {
+                margin: 0;
+                padding: 0;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                text-align: center;
+            }
+            
+            %link {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                cursor: pointer;
+                color: inherit;
+            }
+            
+            %payment-icon {
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+            
+            .wrapper {
+                box-sizing: border-box;
+                @include wrapper();
+                position: relative;
+            }
+            
+            @import '../precss/_smartgrid.scss';
+            @import "colors"; //  Section-Text_Reviews (block #13)
+            .text-reviews {
+                background-image: url("../img/text_reviws320bg.png");
+                background-size: cover;
+                background-repeat: repeat;
+                margin: 0 auto;
+                padding-top: 56px;
+                padding-bottom: 64px;
+                @include sm( padding-bottom,
+                72px);
+                @include lg( padding-bottom,
+                94px);
+                &__title {
+                    @extend %title;
+                    max-width: 244px;
+                    @include sm(max-width,
+                    608px);
+                    @include lg(max-width,
+                    860px);
+                    &::before {
+                        @extend %title--before-line;
+                    }
+                }
+                &__list {
+                    padding-top: 72px;
+                    padding-bottom: 40px;
+                    @include lg(padding-bottom,
+                    82px)
+                }
+            }
+            
+            .text-reviews__item {
+                box-sizing: border-box;
+                background: #fff;
+                background-position-y: 30px;
+                padding: 48px 15px 16px;
+                text-align: center;
+                position: relative;
+                box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
+                @include sm(padding-left,
+                206px);
+                @include sm(padding-top,
+                30px);
+                @include sm(height,
+                186px);
+                &:not(:last-child) {
+                    margin-bottom: 72px;
+                    @include sm(margin-bottom,
+                    10px);
+                }
+                &-image {
+                    display: block;
+                    margin: 0 auto;
                     position: absolute;
-                    top: 6px;
-                    left: -20px;
-                    @include sm(height,
-                    38px);
-                    @include sm(width,
-                    36px);
+                    left: 50%;
+                    top: -48px;
+                    transform: translateX(-50%);
+                    @include sm(left,
+                    0px);
                     @include sm(top,
                     0px);
-                    @include sm (left,
-                    -28px)
+                    @include sm(transform,
+                    translateX(0));
+                    @include sm(width,
+                    192px);
+                    @include sm(height,
+                    186px);
                 }
-            }
-        }
-    }
-    
-    .bundle-list {
-        display: block;
-        @include sm(display,
-        flex);
-        @include sm( margin,
-        0 -15px)
-    }
-    
-    .bundle {
-        @include size(2);
-        @include size-sm(1);
-        display: block;
-        margin: 0 auto;
-        padding-bottom: 40px;
-        text-align: center;
-        background-color: #313133;
-        box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
-        &:not(:last-child) {
-            margin-bottom: 20px;
-            @include sm(margin-bottom,
-            0px);
-        }
-        &__name {
-            padding-top: 24px;
-            padding-bottom: 20px;
-            text-align: center;
-            text-transform: uppercase;
-            background-color: #3c3c3c;
-            border-bottom: 1px solid #464648;
-        }
-        &:last-child .bundle__name {
-            padding-left: 34px;
-            @include sm(padding-left,
-            0px);
-            @include lg(background-color,
-            #2a292c);
-        }
-        &__skills-list {
-            padding-top: 42px;
-            margin-bottom: 30px;
-        }
-        &__skills-item {
-            &:not(:last-child) {
-                margin-bottom: 16px;
-            }
-        }
-        &__final-project {
-            text-transform: uppercase;
-            line-height: 24px;
-        }
-        &__text-box {
-            display: inline-block;
-            margin-top: 30px;
-            margin-bottom: 36px;
-            @include lg(margin-top,
-            26px);
-            @include lg( margin-bottom,
-            30px);
-            padding: 14px 54px;
-            background-image: url("../img/bundle_text-box.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
-        &__career-list {
-            text-align: left;
-            padding-right: 12px;
-            padding-left: 12px;
-        }
-        &__career-item {
-            padding: 28px 0 26px 16px;
-            @include font-mixin('Ubuntu-mono_R',
-            14px,
-            #c0c0c0);
-            background-color: #2b2b2d;
-            box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.14);
-            &:not(:last-child) {
-                margin-bottom: 10px;
-            }
-        }
-        &__price {
-            padding-top: 30px;
-            padding-bottom: 24px;
-            @include font-mixin("Museo_900",
-            36px,
-            #ffc600);
-            &--offline {
-                color: #5cc497;
-            }
-        }
-    }
-    
-    .bundle-button {
-        @extend %button;
-        @include font-mixin("Museo_900",
-        16px,
-        #fff);
-        padding-top: 18px;
-        padding-bottom: 20px;
-        width: 240px;
-        text-transform: uppercase;
-        background-image: linear-gradient ( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
-        background-image: -webkit-linear-gradient( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
-        box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
-        border-radius: 5px;
-    } // differences
-    .difference {
-        padding-top: 56px;
-        padding-bottom: 56px;
-        background: #fff;
-        &__title {
-            @extend %title;
-            max-width: 244px;
-            @include sm(max-width,
-            504px);
-            @include lg(max-width,
-            704px);
-            padding-bottom: 56px;
-            &::before {
-                @extend %title--before-line;
-            }
-        }
-        &__list {
-            padding-top: 10px;
-            padding-bottom: 52px;
-            border-bottom: 2px solid #242427;
-            & {
-                @include sm(border-bottom,
-                none);
-            }
-        }
-        &__item {
-            &:not(:last-child) {
-                padding-bottom: 30px;
-            }
-            // TODO h3 ubunto bold
-            &-title {
-                display: block;
-                @include font-mixin("Ubuntu-mono_R",
-                20px,
-                #242427);
-                margin-bottom: 20px;
-                &::after {
-                    content: "";
+                &-header {
+                    @include sm(display,
+                    flex);
+                    // @include sm(flex-wrap,
+                    // no-wrap);
+                    @include sm(justify-content,
+                    space-between);
+                    @include sm(align-items,
+                    center);
+                }
+                &-name {
+                    display: inline-block;
+                    text-align: center;
+                    margin-bottom: 8px;
+                    padding: 0 10px;
+                    background-color: black;
+                    @include font-mixin("Ubuntu-mono_R",
+                    30px,
+                    #00bcd4);
+                    line-height: 36px;
+                    @include sm(flex-grow,
+                    none);
+                }
+                &-proffesion {
+                    color: yellow;
+                    margin-bottom: 14px;
+                    @include sm(margin-bottom,
+                    0px);
+                    @include sm(font-size,
+                    12px);
+                    &_cutted {
+                        display: none;
+                        @include lg(display,
+                        inline-block);
+                    }
+                }
+                &-review {
                     display: block;
-                    margin-top: 10px;
-                    width: 80px;
-                    height: 2px;
-                    background: #00bcd4;
+                    padding-bottom: 48px;
+                    @include font-mixin('OpenSans_ExB',
+                    14px,
+                    green);
+                    @include sm(padding-bottom,
+                    0px)
                 }
             }
-            &-summary {
-                // semibold
-                @include font-mixin("OpenSans_ExB",
-                14px,
-                #242427)
+            
+            .text-reviews__item .text-reviews__item-review {
+                text-align: left;
             }
-            &-list {
-                padding-top: 10px;
-                & li {
-                    padding-left: 40px;
-                    position: relative;
+            
+            // &__title {}
+            // &__list {}
+            // &__slogan {
+            //     margin-bottom: 36px;
+            //     @include lg(margin-bottom,
+            //     0px);
+            //     @include sm(margin-bottom,
+            //     40px);
+            //     @include sm(padding-top,
+            //     12px);
+            //     @include sm(padding-bottom,
+            //     8px);
+            //     text-transform: uppercase;
+            .see_results {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                @include lg(justify-content,
+                space-between);
+                @include lg(flex-flow,
+                row-reverse);
+                @include sm(margin-top,
+                10px);
+                @include lg(margin-top,
+                0px);
+                @include lg(justify-content,
+                space-between);
+                &-slogan {
+                    margin-bottom: 36px;
+                    @include font-mixin(OpenSans_ExB,
+                    14px,
+                    #242427);
+                    text-align: left;
+                    @include sm(text-align,
+                    center);
+                    @include lg(margin-bottom,
+                    0px);
+                    @include sm(margin-bottom,
+                    40px);
+                    text-transform: uppercase;
+                    &-link {
+                        @extend %link;
+                        @include sm(background-color,
+                        #242427);
+                        @include sm(color,
+                        #ffffff);
+                        @include sm(padding-top,
+                        12px);
+                        @include sm(padding-bottom,
+                        8px);
+                    }
+                    &--topline {
+                        @include sm(border-top,
+                        2px solid #242427);
+                        @include sm(padding-top,
+                        10px);
+                    }
+                    &--underline {
+                        @include sm(border-bottom,
+                        2px solid #242427);
+                        @include sm( padding-bottom,
+                        6px);
+                    }
                 }
-                & li:not(:last-child) {
+            }
+            
+            .read_more-button {
+                @extend %button;
+                margin-bottom: 16px;
+                padding: 0;
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                border-bottom: 1px solid #000;
+                display: block;
+                text-align: right;
+                position: absolute;
+                bottom: 0px;
+                right: 15px;
+            }
+            
+            .start_study-button {
+                @extend %button;
+                width: 290px;
+                padding: 20px 0;
+                text-transform: uppercase;
+                color: white;
+                font-size: 14px;
+                border-radius: 5px;
+                background-image: linear-gradient ( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
+                background-image: -webkit-linear-gradient( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
+                box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
+            }
+            
+            .prices {
+                background-image: url("../img/prices320bg.png");
+                background-size: cover;
+                background-repeat: repeat;
+                margin: 0 auto;
+                padding: 60px 0;
+                color: white;
+                &__title {
+                    @extend %title;
+                    max-width: 290px;
+                    @include sm(max-width,
+                    520px);
+                    @include lg(max-width,
+                    726px);
+                    color: white;
+                    margin-bottom: 10px;
+                    @include sm(margin-bottom,
+                    34px);
+                    @include lg(margin-bottom,
+                    50px);
+                    &::before {
+                        @extend %title--before-line;
+                    }
+                }
+                &__pretitle {
+                    display: block;
+                    margin: 0 auto;
+                    text-transform: uppercase;
+                    @include font-mixin("Museo_900",
+                    14px,
+                    red);
+                    text-align: center;
+                    margin-bottom: 52px;
+                    @include sm(text-align,
+                    right);
+                    @include sm(width,
+                    320px);
+                    @include sm(padding-bottom,
+                    4px);
+                    @include sm(border-bottom,
+                    2px solid #fff);
+                    @include lg(width,
+                    472px);
+                    &::before {
+                        display: block;
+                        content: "";
+                        height: 2px;
+                        width: 150px;
+                        margin: 0 auto 16px;
+                        background-color: #fff;
+                        @include sm(width,
+                        320px);
+                        @include lg(width,
+                        472px);
+                        @include sm(display,
+                        none);
+                    }
+                }
+                &__warranty {
+                    @include font-mixin("OpenSans_ExB",
+                    14px,
+                    #fff);
+                    margin-bottom: 31px;
+                }
+                &--accent-size {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+                &--accent-color {
+                    color: #00bcd4;
+                }
+                &__schedule {
+                    display: block;
+                    padding-top: 26px;
+                    padding-bottom: 26px;
+                    background-color: #3c3c3c;
+                    box-shadow: 0px 20px 36px 0px rgba(0, 0, 0, 0.3);
+                    text-align: center;
                     margin-bottom: 20px;
                 }
-                & li::before {
-                    content: "";
-                    display: inline-block;
-                    width: 18px;
-                    height: 18px;
-                    background: #242427;
-                    border-radius: 50%;
-                    position: absolute;
-                    left: 0px;
+                &__payment-title {
+                    @include size(1.5);
+                    @include size-sm(1);
+                    display: block;
+                    margin: 0 auto;
+                    padding-top: 34px;
+                    padding-bottom: 16px;
+                    @include font-mixin("OpenSans_ExB",
+                    16px,
+                    #fff);
+                    text-transform: uppercase;
+                    text-align: center;
+                }
+                &__payment-list {
+                    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+                    @include sm(display,
+                    flex);
+                }
+                &__payment-item {
+                    // padding-top: 20px;
+                    // padding-bottom: 26px;
+                    text-align: center;
+                    background: #2a292c;
+                    border-bottom: 1px solid #403f42;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    @include sm(border-border,
+                    none);
+                    @include sm(flex-grow,
+                    1);
+                    @include lg(flex-direction,
+                    row);
+                    @include lg(padding-left,
+                    55px);
+                    &:not(:last-child) {
+                        @include sm(border-right,
+                        1px solid #403f42);
+                    }
+                    &:nth-child(1) {
+                        padding-top: 20px;
+                        padding-bottom: 24px;
+                        @include sm(padding-top,
+                        28px);
+                        @include sm(padding-bottom,
+                        28px);
+                    }
+                    &:nth-child(2) {
+                        padding-top: 24px;
+                        padding-bottom: 20px;
+                        @include sm(padding-top,
+                        28px);
+                        @include sm(padding-bottom,
+                        28px);
+                    }
+                    &:nth-child(3) {
+                        padding-top: 10px;
+                        padding-bottom: 28px;
+                        @include sm(padding-top,
+                        28px);
+                        @include sm(padding-bottom,
+                        28px);
+                    }
+                }
+                &__payment-link {
+                    @extend %link;
+                    @include font-mixin("Ubuntu-mono_R",
+                    16px,
+                    #fff);
+                    padding-top: 18px;
+                    text-align: center;
+                    @include lg(margin-left,
+                    28px);
+                    @include lg(padding-top,
+                    0px);
+                    &--cash {
+                        @extend %payment-icon;
+                        height: 45px;
+                        width: 45px;
+                        @include sm(height,
+                        61px);
+                        @include sm(width,
+                        63px);
+                        background-image: url("../img/wallet.png");
+                    }
+                    &--card {
+                        height: 42px;
+                        width: 50px;
+                        background-image: url("../img/credit-card.png");
+                        @extend %payment-icon;
+                        @include sm(height,
+                        65px);
+                        @include sm(width,
+                        72px);
+                    }
+                    &--transfer {
+                        height: 47px;
+                        width: 45px;
+                        @include sm(height,
+                        65px);
+                        @include sm(width,
+                        62px);
+                        background-image: url("../img/rich.png");
+                        @extend %payment-icon;
+                        position: relative;
+                        &::before {
+                            display: inline-block;
+                            content: "";
+                            height: 32px;
+                            width: 32px;
+                            background-image: url("../img/stopwatch.png");
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            position: absolute;
+                            top: 6px;
+                            left: -20px;
+                            @include sm(height,
+                            38px);
+                            @include sm(width,
+                            36px);
+                            @include sm(top,
+                            0px);
+                            @include sm (left,
+                            -28px)
+                        }
+                    }
                 }
             }
-        }
-        &__notice {
-            display: block;
-            margin: 0 auto;
-            padding-top: 8px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            @include sm(width,
-            624px);
-            @include sm(height,
-            216px);
-            @include sm(padding-top,
-            40px);
-            @include sm(padding-left,
-            40px);
-            @include sm(padding-right,
-            40px);
-            @include sm(padding-bottom,
-            24px);
-            @include sm(background-image,
-            url("../img/difference__notice\ 768.png"));
-            @include lg(margin-right,
-            66px);
-            @include lg(width,
-            852px);
-            @include lg(height,
-            248px);
-            @include lg(padding-top,
-            40px);
-            @include lg(padding-left,
-            62px);
-            @include lg(padding-right,
-            62px);
-            @include lg(padding-bottom,
-            24px);
-            @include lg(background-image,
-            url("../img/difference\ notice\ lg.png"));
-            &-title {
-                text-transform: uppercase;
-                @include font-mixin("OpenSans_ExB",
-                14px,
-                #242427);
+            
+            .bundle-list {
+                display: block;
+                @include sm(display,
+                flex);
+                @include sm( margin,
+                0 -15px)
             }
-        }
-    }
+            
+            .bundle {
+                @include size(2);
+                @include size-sm(1);
+                display: block;
+                margin: 0 auto;
+                padding-bottom: 40px;
+                text-align: center;
+                background-color: #313133;
+                box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                    @include sm(margin-bottom,
+                    0px);
+                }
+                &__name {
+                    padding-top: 24px;
+                    padding-bottom: 20px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    background-color: #3c3c3c;
+                    border-bottom: 1px solid #464648;
+                }
+                &:last-child .bundle__name {
+                    padding-left: 34px;
+                    @include sm(padding-left,
+                    0px);
+                    @include lg(background-color,
+                    #2a292c);
+                }
+                &__skills-list {
+                    padding-top: 42px;
+                    margin-bottom: 30px;
+                }
+                &__skills-item {
+                    &:not(:last-child) {
+                        margin-bottom: 16px;
+                    }
+                }
+                &__final-project {
+                    text-transform: uppercase;
+                    line-height: 24px;
+                }
+                &__text-box {
+                    display: inline-block;
+                    margin-top: 30px;
+                    margin-bottom: 36px;
+                    @include lg(margin-top,
+                    26px);
+                    @include lg( margin-bottom,
+                    30px);
+                    padding: 14px 54px;
+                    background-image: url("../img/bundle_text-box.png");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                }
+                &__career-list {
+                    text-align: left;
+                    padding-right: 12px;
+                    padding-left: 12px;
+                }
+                &__career-item {
+                    padding: 28px 0 26px 16px;
+                    @include font-mixin('Ubuntu-mono_R',
+                    14px,
+                    #c0c0c0);
+                    background-color: #2b2b2d;
+                    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.14);
+                    &:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
+                }
+                &__price {
+                    padding-top: 30px;
+                    padding-bottom: 24px;
+                    @include font-mixin("Museo_900",
+                    36px,
+                    #ffc600);
+                    &--offline {
+                        color: #5cc497;
+                    }
+                }
+            }
+            
+            .bundle-button {
+                @extend %button;
+                @include font-mixin("Museo_900",
+                16px,
+                #fff);
+                padding-top: 18px;
+                padding-bottom: 20px;
+                width: 240px;
+                text-transform: uppercase;
+                background-image: linear-gradient ( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
+                background-image: -webkit-linear-gradient( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
+                box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
+                border-radius: 5px;
+            } // differences
+            .difference {
+                padding-top: 56px;
+                background: #fafafa;
+                position: relative;
+                z-index: 1;
+                &__title {
+                    @extend %title;
+                    max-width: 244px;
+                    @include sm(max-width,
+                    504px);
+                    @include lg(max-width,
+                    704px);
+                    padding-bottom: 56px;
+                    &::before {
+                        @extend %title--before-line;
+                    }
+                }
+                &__list {
+                    padding-top: 10px;
+                    padding-bottom: 52px;
+                    border-bottom: 2px solid #242427;
+                    & {
+                        @include sm(border-bottom,
+                        none);
+                    }
+                }
+                &__item {
+                    &:not(:last-child) {
+                        padding-bottom: 30px;
+                    }
+                    // TODO h3 ubunto bold
+                    &-title {
+                        display: block;
+                        @include font-mixin("Ubuntu-mono_R",
+                        20px,
+                        #242427);
+                        margin-bottom: 20px;
+                        &::after {
+                            content: "";
+                            display: block;
+                            margin-top: 10px;
+                            width: 80px;
+                            height: 2px;
+                            background: #00bcd4;
+                        }
+                    }
+                    &-summary {
+                        // semibold
+                        @include font-mixin("OpenSans_ExB",
+                        14px,
+                        #242427)
+                    }
+                    &-list {
+                        padding-top: 10px;
+                        & li {
+                            padding-left: 40px;
+                            position: relative;
+                        }
+                        & li:not(:last-child) {
+                            margin-bottom: 20px;
+                        }
+                        & li::before {
+                            content: "";
+                            display: inline-block;
+                            width: 18px;
+                            height: 18px;
+                            background: #242427;
+                            border-radius: 50%;
+                            position: absolute;
+                            left: 0px;
+                        }
+                    }
+                }
+                &__notice {
+                    display: block;
+                    box-sizing: border-box;
+                    margin: 0 auto;
+                    padding-top: 8px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    @include sm(width,
+                    624px);
+                    @include sm(height,
+                    216px);
+                    @include sm(padding-top,
+                    40px);
+                    @include sm(padding-left,
+                    40px);
+                    @include sm(padding-right,
+                    40px);
+                    @include sm(padding-bottom,
+                    24px);
+                    @include sm(background-image,
+                    url("../img/difference__notice\ 768.png"));
+                    @include lg(width,
+                    852px);
+                    @include lg(height,
+                    248px);
+                    @include lg(padding-top,
+                    40px);
+                    @include lg(padding-left,
+                    62px);
+                    @include lg(padding-right,
+                    62px);
+                    @include lg(padding-bottom,
+                    24px);
+                    @include lg(background-image,
+                    url("../img/difference\ notice\ lg.png"));
+                    &-title {
+                        text-transform: uppercase;
+                        @include font-mixin("OpenSans_ExB",
+                        14px,
+                        #242427);
+                    }
+                }
+            }
+            
+            .wrapper__background {
+                @include wrapper();
+                position: relative;
+                z-index: 1;
+            }
+            
+            .difference .wrapper {
+                @include wrapper();
+                @include sm(box-shadow,
+                0px 22px 20px 0px rgba(0,
+                0,
+                0,
+                0.12));
+                background-color: #fafafa;
+                @include sm(padding-bottom,
+                56px);
+                position: relative;
+            }
+            
+            .difference .wrapper::after {
+                display: none;
+                @include sm(display,
+                block);
+                content: "";
+                width: 574px;
+                height: 568px;
+                background-color: #00bad2;
+                position: absolute;
+                bottom: -20px;
+                left: -20px;
+                z-index: -1;
+            }
