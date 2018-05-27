@@ -12,13 +12,13 @@ var settings = {
     mobileFirst: 'mobileFirst',
     /* mobileFirst ? 'min-width' : 'max-width' */
     container: {
-        maxWidth: '1759px',
+        maxWidth: '1920px',
         /* max-width оn very large screen */
         fields: '80px' /* side fields */
     },
     breakPoints: {
         lg: {
-            width: '1920px',
+            width: '1440px',
             /* -> @media (max-width: 1100px) */
         },
         sm: {

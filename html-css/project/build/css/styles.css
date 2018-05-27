@@ -2,6 +2,32 @@
    Import partials below
 */
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 @font-face {
   font-family: 'Museo_300';
   src: url("../fonts/museosanscyrl_300.woff2") format("woff2");
@@ -338,21 +364,35 @@ body img {
   background-size: contain;
 }
 
-.wrapper {
+.container {
   box-sizing: border-box;
-  max-width: 1759px;
+  max-width: 1920px;
   margin: 0 auto;
   padding-left: 80px;
   padding-right: 80px;
   position: relative;
+  margin: 0 auto;
+}
+
+.item {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0px;
+  margin-right: 0px;
+  overflow: hidden;
 }
 
 .text-reviews {
-  background-image: url("../img/text_reviws320bg.png");
-  background-size: cover;
-  background-repeat: repeat;
   margin: 0 auto;
   padding-top: 56px;
+  position: relative;
   padding-bottom: 64px;
 }
 
@@ -363,6 +403,72 @@ body img {
 .text-reviews__list {
   padding-top: 72px;
   padding-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.text-reviews__list::after {
+  display: none;
+  content: "";
+  width: 488px;
+  height: 948px;
+  background-image: url("../img/text_reviews_lg_bg_image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 120px;
+  left: -194px;
+  z-index: 2;
+}
+
+.text-reviews .container {
+  background-image: url("../img/text_reviews320bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-reviews .container::after {
+  display: none;
+  content: "";
+  width: 100px;
+  height: 330px;
+  background-color: #00bcd4;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -5;
+}
+
+.text-reviews .row::before {
+  display: none;
+  content: "";
+  width: 473px;
+  height: 359px;
+  background-color: #00bcd4;
+  position: absolute;
+  right: -122px;
+  top: 256px;
+  z-index: -10;
+}
+
+.text-reviews .row::after {
+  display: none;
+  content: "";
+  width: 1656px;
+  height: 730px;
+  background-image: url("../img/text_revies_bottom_bg_lg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: -386px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+.text-reviews .row {
+  flex-direction: column;
+  position: relative;
+  overflow: visible;
 }
 
 .text-reviews__item {
@@ -372,6 +478,7 @@ body img {
   padding: 48px 15px 16px;
   text-align: center;
   position: relative;
+  z-index: 50;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
 }
 
@@ -427,6 +534,7 @@ body img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 }
 
 .see_results-slogan {
@@ -454,7 +562,10 @@ body img {
 
 .start_study-button {
   width: 290px;
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 34px;
+  padding-right: 32px;
   text-transform: uppercase;
   color: white;
   font-size: 14px;
@@ -465,12 +576,11 @@ body img {
 }
 
 .prices {
-  background-image: url("../img/prices320bg.png");
-  background-size: cover;
-  background-repeat: repeat;
   margin: 0 auto;
   padding: 60px 0;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .prices__title {
@@ -606,12 +716,61 @@ body img {
   left: -20px;
 }
 
-.bundle-list {
-  display: block;
+.prices .row {
+  flex-direction: column;
+  z-index: 10;
+}
+
+.prices .container {
+  background-image: url("../img/prices320bg.png");
+  z-index: 1;
+}
+
+.prices .container::after {
+  display: none;
+  content: "";
+  height: 700px;
+  width: 100%;
+  background-color: #2b2b30;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.prices .row::before {
+  display: none;
+  content: "";
+  height: 486px;
+  width: 427px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  background-color: transparent;
+  background-image: url("../img/difference_bubles.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 472px;
+  left: 68px;
+  z-index: -1;
+}
+
+.prices .row::after {
+  display: none;
+  content: "";
+  height: 486px;
+  width: 427px;
+  background-image: url("../img/difference_bubles.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 302px;
+  right: 87px;
+  z-index: -1;
 }
 
 .bundle {
-  width: calc(100% - 0px);
+  flex-grow: 1;
   display: block;
   margin: 0 auto;
   padding-bottom: 40px;
@@ -669,16 +828,33 @@ body img {
 }
 
 .bundle__career-item {
-  padding: 28px 0 26px 16px;
+  padding: 28px 30px 26px 16px;
   font-family: "Ubuntu-mono_R";
   font-size: 14px;
   color: #c0c0c0;
   background-color: #2b2b2d;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.14);
+  position: relative;
+  z-index: 1;
 }
 
 .bundle__career-item:not(:last-child) {
   margin-bottom: 10px;
+  position: relative;
+}
+
+.bundle__career-item::before {
+  display: none;
+  content: "";
+  width: 58px;
+  height: 1px;
+  background-color: #00bcd4;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: -38px;
+  z-index: 5;
 }
 
 .bundle__price {
@@ -792,48 +968,67 @@ body img {
   color: #242427;
 }
 
-.wrapper__background {
-  max-width: 1759px;
-  margin: 0 auto;
-  padding-left: 80px;
-  padding-right: 80px;
-  position: relative;
-  z-index: 1;
-}
-
-.difference .wrapper {
-  max-width: 1759px;
-  margin: 0 auto;
-  padding-left: 80px;
-  padding-right: 80px;
+.difference .row {
+  overflow: visible;
+  flex-direction: column;
   background-color: #fafafa;
   position: relative;
 }
 
-.difference .wrapper::after {
+.difference .row::after {
   display: none;
   content: "";
-  width: 574px;
-  height: 568px;
-  background-color: #00bad2;
+  width: 96px;
+  height: 564px;
+  background-color: #00bcd4;
   position: absolute;
-  bottom: -20px;
-  left: -20px;
-  z-index: -1;
+  right: -72px;
+  top: 60px;
+  z-index: -10;
+  box-shadow: 0px 48px 35px 0px rgba(0, 0, 0, 0.1);
+}
+
+.difference .row::before {
+  display: none;
+  content: "";
+  width: 571px;
+  height: 562px;
+  background-color: #00bcd4;
+  position: absolute;
+  left: -36px;
+  bottom: -40px;
+  z-index: -10;
+}
+
+.difference .container::after {
+  display: none;
+  content: "";
+  width: 475px;
+  height: 953px;
+  background-image: url("../img/difference_lg_image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 163px;
+  left: 152px;
+  z-index: -10;
+}
+
+.difference::after {
+  display: none;
+  content: "";
+  width: 2px;
+  height: 100%;
+  background-color: #dadadb;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: 320px) {
-  .wrapper {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .wrapper__background {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .difference .wrapper {
+  .container {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -856,9 +1051,14 @@ body img {
     font-size: 30px;
   }
 
-  .wrapper {
+  .container {
     padding-left: 39px;
     padding-right: 39px;
+  }
+
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .text-reviews {
@@ -867,6 +1067,18 @@ body img {
 
   .text-reviews__title {
     max-width: 608px;
+  }
+
+  .text-reviews__list {
+    padding-top: 72px;
+  }
+
+  .text-reviews .container {
+    background-image: url("../img/text_reviews_768bg.png");
+  }
+
+  .text-reviews .container {
+    padding-top: 100px;
   }
 
   .text-reviews__item {
@@ -976,6 +1188,18 @@ body img {
 
   .see_results-slogan--underline {
     padding-bottom: 6px;
+  }
+
+  .start_study-button {
+    width: 300px;
+  }
+
+  .start_study-button {
+    padding-left: 36px;
+  }
+
+  .start_study-button {
+    padding-right: 42px;
   }
 
   .prices__title {
@@ -1094,24 +1318,44 @@ body img {
     left: -28px;
   }
 
+  .prices .container {
+    background-image: url("../img/prices768bg.png");
+  }
+
+  .prices .container::after {
+    display: block;
+  }
+
   .bundle-list {
     display: flex;
-  }
-
-  .bundle-list {
-    margin: 0 -15px;
-  }
-
-  .bundle {
-    width: calc(50% - 30px);
   }
 
   .bundle:not(:last-child) {
     margin-bottom: 0px;
   }
 
+  .bundle:first-child {
+    box-shadow: 0px 20px 36px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .bundle:first-child {
+    margin-right: 30px;
+  }
+
   .bundle:last-child .bundle__name {
     padding-left: 0px;
+  }
+
+  .bundle__career-item {
+    padding-left: 14px;
+  }
+
+  .bundle__career-item {
+    padding-top: 20px;
+  }
+
+  .bundle__career-item {
+    padding-bottom: 16px;
   }
 
   .difference__title {
@@ -1150,38 +1394,40 @@ body img {
     background-image: url("../img/difference__notice 768.png");
   }
 
-  .wrapper__background {
-    padding-left: 39px;
-    padding-right: 39px;
-  }
-
-  .difference .wrapper {
-    padding-left: 39px;
-    padding-right: 39px;
-  }
-
-  .difference .wrapper {
+  .difference .row {
     box-shadow: 0px 22px 20px 0px rgba(0, 0, 0, 0.12);
   }
 
-  .difference .wrapper {
+  .difference .row {
     padding-bottom: 56px;
   }
 
-  .difference .wrapper::after {
+  .difference .row {
+    padding-left: 28px;
+  }
+
+  .difference .row {
+    padding-right: 28px;
+  }
+
+  .difference::after {
     display: block;
   }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1440px) {
   .text-reviews__title,
   .prices__title,
   .difference__title {
     font-size: 42px;
   }
 
-  .text-reviews {
-    padding-bottom: 94px;
+  .row {
+    max-width: 1147px;
+  }
+
+  .row {
+    margin: 0 auto;
   }
 
   .text-reviews__title {
@@ -1192,8 +1438,40 @@ body img {
     padding-bottom: 82px;
   }
 
+  .text-reviews__list {
+    padding-top: 112px;
+  }
+
+  .text-reviews__list::after {
+    display: block;
+  }
+
+  .text-reviews .container {
+    padding-top: 336px;
+  }
+
+  .text-reviews .container {
+    background-image: url("../img/text_reviews_lg_bg.png");
+  }
+
+  .text-reviews .container::after {
+    display: block;
+  }
+
+  .text-reviews .row::before {
+    display: block;
+  }
+
+  .text-reviews .row::after {
+    display: block;
+  }
+
   .text-reviews__item-proffesion_cutted {
     display: inline-block;
+  }
+
+  .see_results {
+    padding-left: 8px;
   }
 
   .see_results {
@@ -1205,15 +1483,31 @@ body img {
   }
 
   .see_results {
-    margin-top: 0px;
-  }
-
-  .see_results {
     justify-content: space-between;
   }
 
-  .see_results-slogan {
-    margin-bottom: 0px;
+  .start_study-button {
+    width: 320px;
+  }
+
+  .start_study-button {
+    padding-top: 24px;
+  }
+
+  .start_study-button {
+    padding-bottom: 26px;
+  }
+
+  .start_study-button {
+    padding-left: 26px;
+  }
+
+  .start_study-button {
+    padding-right: 38px;
+  }
+
+  .prices {
+    padding-top: 268px;
   }
 
   .prices__title {
@@ -1248,6 +1542,14 @@ body img {
     padding-top: 0px;
   }
 
+  .prices .row::before {
+    display: block;
+  }
+
+  .prices .row::after {
+    display: block;
+  }
+
   .bundle:last-child .bundle__name {
     background-color: #2a292c;
   }
@@ -1258,6 +1560,30 @@ body img {
 
   .bundle__text-box {
     margin-bottom: 30px;
+  }
+
+  .bundle__career-list {
+    padding-right: 32px;
+  }
+
+  .bundle__career-list {
+    padding-left: 32px;
+  }
+
+  .bundle__career-item {
+    padding-left: 48px;
+  }
+
+  .bundle__career-item {
+    padding-top: 34px;
+  }
+
+  .bundle__career-item {
+    padding-bottom: 34px;
+  }
+
+  .bundle__career-item::before {
+    display: block;
   }
 
   .difference__title {
@@ -1290,5 +1616,17 @@ body img {
 
   .difference__notice {
     background-image: url("../img/difference notice lg.png");
+  }
+
+  .difference .row::after {
+    display: block;
+  }
+
+  .difference .row::before {
+    display: block;
+  }
+
+  .difference .container::after {
+    display: block;
   }
 }

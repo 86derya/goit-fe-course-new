@@ -2,10 +2,35 @@
    Import partials below
 */
             
+            html {
+                box-sizing: border-box;
+            }
+            
+            *,
+            *::before,
+            *::after {
+                box-sizing: inherit;
+            }
+            
+            .hidden:not(:focus):not(:active),
+            input[type="checkbox"].visually-hidden,
+            input[type="radio"].visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                border: 0;
+                padding: 0;
+                white-space: nowrap;
+                clip-path: inset(100%);
+                clip: rect(0 0 0 0);
+                overflow: hidden;
+            }
+            
             @import "../scss/fonts.scss";
             @import "../precss/_smartgrid.scss";
             @import "../scss/common.scss";
-            @import"../scss/colors.scss";
+            @import"../scss/colors.scss"; //  Section-Text_Reviews (block #13)
             body {
                 margin: 0;
                 padding: 0;
@@ -29,9 +54,7 @@
                 width: 16px;
                 position: relative;
                 bottom: -4px;
-            }
-            
-            // %pretitle-line {
+            } // %pretitle-line {
             //    
             // }
             %button {
@@ -59,32 +82,62 @@
                 background-size: contain;
             }
             
-            .wrapper {
+            .container {
                 box-sizing: border-box;
                 @include wrapper();
                 position: relative;
+                margin: 0 auto;
             }
             
-            @import '../precss/_smartgrid.scss';
-            @import "colors"; //  Section-Text_Reviews (block #13)
+            // .container {
+            //     max-width: 1759px;
+            //     margin: 0 auto;
+            //     padding-left: 15px;
+            //     padding-right: 15px;
+            //     @include sm(padding-right, 39px);
+            //     @include sm(padding-left, 39px);
+            //     @include lg(padding-right, 80px);
+            //     @include lg(padding-left, 80px);
+            //     // @include wrapper();
+            //     position: relative;
+            // }
+            .item {
+                box-sizing: border-box;
+                word-wrap: break-word;
+                margin-left: 0px;
+                margin-right: 0px;
+            }
+            
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: 0px;
+                margin-right: 0px;
+                overflow: hidden;
+                @include lg(max-width, 1147px);
+                @include lg(margin, 0 auto);
+            }
+            
+            @media screen and (min-width: 768px) {
+                .row {
+                    margin-left: -15px;
+                    margin-right: -15px;
+                }
+            }
+            
             .text-reviews {
-                background-image: url("../img/text_reviws320bg.png");
-                background-size: cover;
-                background-repeat: repeat;
                 margin: 0 auto;
                 padding-top: 56px;
+                position: relative;
                 padding-bottom: 64px;
-                @include sm( padding-bottom,
-                72px);
-                @include lg( padding-bottom,
-                94px);
+                // @include lg(margin-top, -336px);
+                @include sm( padding-bottom, 72px);
+                // @include lg( padding-bottom, 94px);
                 &__title {
                     @extend %title;
                     max-width: 244px;
-                    @include sm(max-width,
-                    608px);
-                    @include lg(max-width,
-                    860px);
+                    @include sm(max-width, 608px);
+                    @include lg(max-width, 860px);
                     &::before {
                         @extend %title--before-line;
                     }
@@ -92,9 +145,94 @@
                 &__list {
                     padding-top: 72px;
                     padding-bottom: 40px;
-                    @include lg(padding-bottom,
-                    82px)
+                    @include lg(padding-bottom, 82px);
+                    @include sm(padding-top, 72px);
+                    @include lg(padding-top, 112px);
+                    position: relative;
+                    z-index: 2;
+                    &::after {
+                        display: none;
+                        content: "";
+                        width: 488px;
+                        height: 948px;
+                        background-image: url("../img/text_reviews_lg_bg_image.png");
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        position: absolute;
+                        top: 120px;
+                        left: -194px;
+                        @include lg(display,
+                        block);
+                        z-index: 2;
+                    }
                 }
+            }
+            
+            .text-reviews .container {
+                background-image: url("../img/text_reviews320bg.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                // background-position: center;
+                @include lg(padding-top,
+                336px);
+                // @include sm(background-size, contain);
+                @include sm(background-image,
+                url("../img/text_reviews_768bg.png"));
+                @include lg(background-image,
+                url("../img/text_reviews_lg_bg.png"));
+                @include sm(padding-top,
+                100px);
+                // z-index: -1;
+            }
+            
+            .text-reviews .container::after {
+                display: none;
+                content: "";
+                width: 100px;
+                height: 330px;
+                background-color: #00bcd4;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                @include lg(display,
+                block);
+                z-index: -5;
+            }
+            
+            .text-reviews .row::before {
+                display: none;
+                @include lg(display,
+                block);
+                content: "";
+                width: 473px;
+                height: 359px;
+                background-color: #00bcd4;
+                position: absolute;
+                right: -122px;
+                top: 256px;
+                z-index: -10;
+            }
+            
+            .text-reviews .row::after {
+                display: none;
+                @include lg(display,
+                block);
+                content: "";
+                width: 1656px;
+                height: 730px;
+                background-image: url("../img/text_revies_bottom_bg_lg.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                position: absolute;
+                left: -386px;
+                bottom: 0px;
+                z-index: 1;
+            }
+            
+            .text-reviews .row {
+                flex-direction: column;
+                position: relative;
+                overflow: visible;
             }
             
             .text-reviews__item {
@@ -104,6 +242,7 @@
                 padding: 48px 15px 16px;
                 text-align: center;
                 position: relative;
+                z-index: 50;
                 box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
                 @include sm(padding-left,
                 206px);
@@ -136,8 +275,7 @@
                 }
                 &-header {
                     @include sm(display,
-                    flex);
-                    // @include sm(flex-wrap,
+                    flex); // @include sm(flex-wrap,
                     // no-wrap);
                     @include sm(justify-content,
                     space-between);
@@ -185,32 +323,22 @@
                 text-align: left;
             }
             
-            // &__title {}
-            // &__list {}
-            // &__slogan {
-            //     margin-bottom: 36px;
-            //     @include lg(margin-bottom,
-            //     0px);
-            //     @include sm(margin-bottom,
-            //     40px);
-            //     @include sm(padding-top,
-            //     12px);
-            //     @include sm(padding-bottom,
-            //     8px);
-            //     text-transform: uppercase;
             .see_results {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                z-index: 100;
+                @include lg(padding-left,
+                8px);
                 @include lg(justify-content,
                 space-between);
                 @include lg(flex-flow,
                 row-reverse);
                 @include sm(margin-top,
                 10px);
-                @include lg(margin-top,
-                0px);
+                // @include lg(margin-top,
+                // 0px);
                 @include lg(justify-content,
                 space-between);
                 &-slogan {
@@ -221,8 +349,8 @@
                     text-align: left;
                     @include sm(text-align,
                     center);
-                    @include lg(margin-bottom,
-                    0px);
+                    // @include lg(margin-bottom,
+                    // 0px);
                     @include sm(margin-bottom,
                     40px);
                     text-transform: uppercase;
@@ -250,6 +378,19 @@
                         6px);
                     }
                 }
+                // &::after {
+                //     display: none;
+                //     @include lg(display,
+                //     block);
+                //     content: "";
+                //     width: 98px;
+                //     height: 332px;
+                //     background-color: #00bcd4;
+                //     position: absolute;
+                //     bottom: 60px;
+                //     left: -382px;
+                //     z-index: -10;
+                // }
             }
             
             .read_more-button {
@@ -270,7 +411,26 @@
             .start_study-button {
                 @extend %button;
                 width: 290px;
-                padding: 20px 0;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 34px;
+                padding-right: 32px;
+                @include sm(width,
+                300px);
+                @include sm(padding-left,
+                36px);
+                @include sm(padding-right,
+                42px);
+                @include lg(width,
+                320px);
+                @include lg(padding-top,
+                24px);
+                @include lg(padding-bottom,
+                26px);
+                @include lg(padding-left,
+                26px);
+                @include lg(padding-right,
+                38px);
                 text-transform: uppercase;
                 color: white;
                 font-size: 14px;
@@ -281,12 +441,13 @@
             }
             
             .prices {
-                background-image: url("../img/prices320bg.png");
-                background-size: cover;
-                background-repeat: repeat;
                 margin: 0 auto;
                 padding: 60px 0;
+                @include lg(padding-top,
+                268px);
                 color: white;
+                position: relative;
+                z-index: 1;
                 &__title {
                     @extend %title;
                     max-width: 290px;
@@ -489,17 +650,76 @@
                 }
             }
             
+            .prices .row {
+                flex-direction: column;
+                z-index: 10;
+            }
+            
+            .prices .container {
+                background-image: url("../img/prices320bg.png");
+                @include sm(background-image,
+                url("../img/prices768bg.png"));
+                z-index: 1;
+            }
+            
+            .prices .container::after {
+                display: none;
+                content: "";
+                @include sm(display,
+                block);
+                height: 700px;
+                width: 100%;
+                background-color: #2b2b30;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: -2;
+            }
+            
+            .prices .row::before {
+                display: none;
+                content: "";
+                @include lg(display,
+                block);
+                height: 486px;
+                width: 427px;
+                transform: rotate(180deg);
+                background-color: transparent;
+                background-image: url("../img/difference_bubles.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 472px;
+                left: 68px;
+                z-index: -1;
+            }
+            
+            .prices .row::after {
+                display: none;
+                content: "";
+                @include lg(display,
+                block);
+                height: 486px;
+                width: 427px;
+                background-image: url("../img/difference_bubles.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: absolute;
+                bottom: 302px;
+                right: 87px;
+                z-index: -1;
+            }
+            
             .bundle-list {
-                display: block;
                 @include sm(display,
                 flex);
-                @include sm( margin,
-                0 -15px)
+                // flex);
+                // @include sm( margin,
+                // 0 -15px)
             }
             
             .bundle {
-                @include size(2);
-                @include size-sm(1);
+                flex-grow: 1;
                 display: block;
                 margin: 0 auto;
                 padding-bottom: 40px;
@@ -510,6 +730,15 @@
                     margin-bottom: 20px;
                     @include sm(margin-bottom,
                     0px);
+                }
+                &:first-child {
+                    @include sm(box-shadow,
+                    0px 20px 36px 0px rgba(0,
+                    0,
+                    0,
+                    0.3));
+                    @include sm(margin-right,
+                    30px);
                 }
                 &__name {
                     padding-top: 24px;
@@ -557,16 +786,49 @@
                     text-align: left;
                     padding-right: 12px;
                     padding-left: 12px;
+                    @include lg(padding-right,
+                    32px);
+                    @include lg(padding-left,
+                    32px);
                 }
                 &__career-item {
-                    padding: 28px 0 26px 16px;
+                    padding: 28px 30px 26px 16px;
+                    @include sm (padding-left,
+                    14px);
+                    @include sm (padding-top,
+                    20px);
+                    @include sm (padding-bottom,
+                    16px);
+                    @include lg (padding-left,
+                    48px);
+                    @include lg (padding-top,
+                    34px);
+                    @include lg (padding-bottom,
+                    34px);
                     @include font-mixin('Ubuntu-mono_R',
                     14px,
                     #c0c0c0);
                     background-color: #2b2b2d;
                     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.14);
+                    position: relative;
+                    z-index: 1;
                     &:not(:last-child) {
                         margin-bottom: 10px;
+                        position: relative;
+                    }
+                    &::before {
+                        display: none;
+                        content: "";
+                        @include lg(display,
+                        block);
+                        width: 58px;
+                        height: 1px;
+                        background-color: #00bcd4;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateX(-50%);
+                        left: -38px;
+                        z-index: 5;
                     }
                 }
                 &__price {
@@ -624,8 +886,7 @@
                 &__item {
                     &:not(:last-child) {
                         padding-bottom: 30px;
-                    }
-                    // TODO h3 ubunto bold
+                    } // TODO h3 ubunto bold
                     &-title {
                         display: block;
                         @include font-mixin("Ubuntu-mono_R",
@@ -712,14 +973,10 @@
                 }
             }
             
-            .wrapper__background {
-                @include wrapper();
-                position: relative;
-                z-index: 1;
-            }
-            
-            .difference .wrapper {
-                @include wrapper();
+            .difference .row {
+                overflow: visible;
+                flex-direction: column;
+                // @include size-lg(1);
                 @include sm(box-shadow,
                 0px 22px 20px 0px rgba(0,
                 0,
@@ -728,19 +985,77 @@
                 background-color: #fafafa;
                 @include sm(padding-bottom,
                 56px);
+                @include sm(padding-left,
+                28px);
+                @include sm(padding-right,
+                28px);
                 position: relative;
             }
             
-            .difference .wrapper::after {
+            .difference .row::after {
+                display: none;
+                @include lg(display,
+                block);
+                content: "";
+                width: 96px;
+                height: 564px;
+                background-color: #00bcd4;
+                position: absolute;
+                right: -72px;
+                top: 60px;
+                z-index: -10;
+                box-shadow: 0px 48px 35px 0px rgba(0, 0, 0, 0.1);
+            }
+            
+            .difference .row::before {
+                display: none;
+                @include lg(display,
+                block);
+                content: "";
+                width: 571px;
+                height: 562px;
+                background-color: #00bcd4;
+                position: absolute;
+                left: -36px;
+                bottom: -40px;
+                z-index: -10;
+            }
+            
+            .difference .container {
+                // @include wrapper();
+                // @include wrapper();
+                // @include sm(margin,
+                // 0 39px);
+                // @include sm(max-width,
+                // 1152px);
+            }
+            
+            .difference .container::after {
+                display: none;
+                @include lg(display,
+                block);
+                content: "";
+                width: 475px;
+                height: 953px;
+                background-image: url("../img/difference_lg_image.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 163px;
+                left: 152px;
+                z-index: -10;
+            }
+            
+            .difference::after {
                 display: none;
                 @include sm(display,
                 block);
                 content: "";
-                width: 574px;
-                height: 568px;
-                background-color: #00bad2;
+                width: 2px;
+                height: 100%;
+                background-color: #dadadb;
                 position: absolute;
-                bottom: -20px;
-                left: -20px;
-                z-index: -1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }

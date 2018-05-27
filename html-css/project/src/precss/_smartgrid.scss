@@ -3,7 +3,7 @@ $atom: (100% / $columns);
 
 $break_xs: 320px;
 $break_sm: 768px;
-$break_lg: 1920px;
+$break_lg: 1440px;
 
 $offset: 0px;
 $offset_xs: $offset;
@@ -55,7 +55,7 @@ $fields_sm: 39px;
 }
 
 @mixin wrapper(){
-    max-width: 1759px;
+    max-width: 1920px;
     margin: 0 auto;
     @include wrapper-full();
 }
