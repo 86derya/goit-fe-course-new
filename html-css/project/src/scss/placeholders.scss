@@ -15,6 +15,9 @@
     width: 16px;
     position: relative;
     bottom: -4px;
+    @include sm(border-bottom, 6px solid $main-blue);
+    @include sm(width, 18px);
+    @include lg(width, 25px);
 }
 
 %button {

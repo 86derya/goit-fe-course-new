@@ -1,0 +1,342 @@
+// BLOCK#13 "SECTION__TEXT-REVIEWS"
+.text-reviews {
+    // @include lg(margin-top,
+    // -336px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    &__title {
+        @extend %title;
+        max-width: 244px;
+        @include sm(max-width, 608px);
+        @include lg(max-width, 860px);
+        &::before {
+            @extend %title--before-line;
+        }
+    }
+    &__list {
+        padding-top: 72px;
+        padding-bottom: 40px;
+        @include lg(padding-top, 112px);
+        @include lg(padding-bottom, 0px);
+        position: relative;
+        z-index: 2;
+        &::after {
+            display: none;
+            content: "";
+            width: 488px;
+            height: 948px;
+            background-image: url("../img/text_reviews_lg_bg_image.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 120px;
+            left: -194px;
+            @include lg(display,
+            block);
+            z-index: 2;
+        }
+    }
+    &__item {
+        box-sizing: border-box;
+        background: $white;
+        background-position-y: 30px;
+        padding: 48px 15px 16px;
+        text-align: center;
+        position: relative;
+        z-index: 50;
+        box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
+        @include sm(padding-left,
+        206px);
+        @include sm(padding-top,
+        30px);
+        @include sm(height,
+        186px);
+        &:not(:last-child) {
+            margin-bottom: 72px;
+            @include sm(margin-bottom,
+            10px);
+        }
+        &-image {
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            top: -48px;
+            transform: translateX(-50%);
+            @include sm(left,
+            0px);
+            @include sm(top,
+            0px);
+            @include sm(transform,
+            translateX(0));
+            @include sm(width,
+            192px);
+            @include sm(height,
+            186px);
+        }
+        &-header {
+            @include sm(display,
+            flex);
+            @include sm(justify-content,
+            space-between);
+            @include sm(align-items,
+            center);
+        }
+        &-name {
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 8px;
+            padding: 10px 10px 6px;
+            background-color: $header-color;
+            @include font-mixin("Ubuntu-mono_B",
+            20px,
+            #00bcd4);
+            line-height: 24px;
+            @include sm(flex-grow,
+            none);
+            @include sm(padding-top,
+            6px);
+            @include sm(padding-bottom,
+            4px);
+            @include lg(padding-top,
+            4px);
+            &--extra-padding {
+                padding-left: 20px;
+                padding-right: 18px;
+                @include sm(padding-left,
+                8px);
+                @include sm(padding-right,
+                8px);
+            }
+        }
+        &-proffesion {
+            margin-bottom: 14px;
+            @include font-mixin("Ubuntu-mono_R",
+            12px,
+            #5f5f5f);
+            @include sm(margin-bottom,
+            0px);
+            @include lg(font-size,
+            14px);
+            &_cutted {
+                display: none;
+                @include lg(display,
+                inline-block);
+            }
+        }
+        &-review {
+            display: block;
+            padding-bottom: 48px;
+            @include font-mixin('OpenSans_Reg',
+            14px,
+            $header-color);
+            line-height: 1.2;
+            @include sm(padding-bottom,
+            0px);
+            @include lg(font-size,
+            18px);
+            text-align: left;
+        }
+    }
+}
+
+.text-reviews .container {
+    padding-top: 56px;
+    padding-bottom: 66px;
+    @include sm(padding-top,
+    98px);
+    @include sm(padding-bottom,
+    72px);
+    @include lg(padding-top,
+    336px);
+    @include lg(padding-bottom,
+    84px);
+    background-image: url("../img/text_reviews320bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include sm(background-image,
+    url("../img/text_reviews_lg_bg.png"));
+    &::after {
+        display: none;
+        content: "";
+        width: 100px;
+        height: 330px;
+        background-color: #00bcd4;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include lg(display,
+        block);
+    }
+}
+
+.text-reviews .row {
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    &::before {
+        display: none;
+        @include sm(display,
+        block);
+        content: "";
+        width: 80%;
+        height: 60px;
+        @include lg(width,
+        359px);
+        @include lg(height,
+        473px);
+        background-color: #00bcd4;
+        position: absolute;
+        top: 120px;
+        right: 36px;
+        @include lg(right,
+        -122px);
+        @include lg (top,
+        256px);
+        z-index: -10;
+    }
+    &::after {
+        display: none;
+        @include lg(display,
+        block);
+        content: "";
+        width: 1656px;
+        height: 730px;
+        background-image: url("../img/text_revies_bottom_bg_lg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: -386px;
+        bottom: 0px;
+        z-index: 1;
+        @include lg(position,
+        absolute);
+        @include lg(bottom,
+        -248px);
+    }
+}
+
+.see_results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    @include sm(margin-top,
+    10px);
+    @include lg(padding-left,
+    8px);
+    @include lg(justify-content,
+    space-between);
+    @include lg(flex-flow,
+    row-reverse);
+    @include lg(margin-top,
+    0px);
+    @include sm(margin-top,
+    10px);
+    @include lg(justify-content,
+    space-between);
+    @include lg(position,
+    absolute);
+    @include lg(bottom,
+    -146px);
+    &-slogan {
+        margin-bottom: 36px;
+        @include font-mixin("OpenSans_ExB",
+        14px,
+        $header-color);
+        text-align: left;
+        @include sm(text-align,
+        center);
+        @include sm(font-size,
+        16px);
+        @include sm(margin-bottom,
+        40px);
+        @include lg(font-size,
+        18px);
+        @include lg(margin-bottom,
+        0px);
+        @include lg(font-size,
+        18px);
+        text-transform: uppercase;
+        &-link {
+            @extend %link;
+            @include sm(background-color,
+            $header-color);
+            @include sm(color,
+            $white);
+            @include sm(padding-top,
+            12px);
+            @include sm(padding-bottom,
+            8px);
+        }
+        &--topline {
+            @include sm(border-top,
+            2px solid $header-color);
+            @include sm(padding-top,
+            10px);
+        }
+        &--underline {
+            @include sm(border-bottom,
+            2px solid $header-color);
+            @include sm( padding-bottom,
+            6px);
+        }
+    }
+}
+
+.read_more-button {
+    @extend %button;
+    @include font-mixin("OpenSans_ExB",
+    14px,
+    $header-color);
+    margin-bottom: 16px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    border-bottom: 1px solid #000;
+    display: block;
+    text-align: right;
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+}
+
+.start_study-button {
+    @extend %button;
+    width: 290px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 34px;
+    padding-right: 32px;
+    @include font-mixin("Museo_900",
+    14px,
+    $white);
+    @include sm(width,
+    300px);
+    @include sm(padding-left,
+    36px);
+    @include sm(padding-right,
+    42px);
+    @include lg(width,
+    320px);
+    @include lg(padding-top,
+    24px);
+    @include lg(padding-bottom,
+    26px);
+    @include lg(padding-left,
+    26px);
+    @include lg(padding-right,
+    38px);
+    @include lg(margin-right,
+    60px);
+    text-transform: uppercase;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    background-image: linear-gradient ( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
+    background-image: -webkit-linear-gradient( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
+    box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
+}
