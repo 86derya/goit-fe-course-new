@@ -27,112 +27,16 @@
                 overflow: hidden;
             }
             
-            @import "../scss/fonts.scss";
+            @import "fonts.scss";
             @import "../precss/_smartgrid.scss";
-            @import "../scss/common.scss";
-            @import"../scss/colors.scss"; //  Section-Text_Reviews (block #13)
-            body {
-                margin: 0;
-                padding: 0;
-                @include reset();
-            }
-            
-            %title {
-                display: block;
-                margin: 0 auto;
-                text-align: center;
-                text-transform: uppercase;
-                @include font-mixin('Museo_900', 25px, blue);
-                @include sm(font-size, 30px);
-                @include lg(font-size, 42px);
-            }
-            
-            %title--before-line {
-                content: "";
-                display: inline-block;
-                border-bottom: 4px solid $main-blue;
-                width: 16px;
-                position: relative;
-                bottom: -4px;
-            } // %pretitle-line {
-            //    
-            // }
-            %button {
-                margin: 0;
-                padding: 0;
-                border: none;
-                outline: none;
-                cursor: pointer;
-                text-align: center;
-            }
-            
-            %link {
-                display: inline-block;
-                margin: 0;
-                padding: 0;
-                text-decoration: none;
-                cursor: pointer;
-                color: inherit;
-            }
-            
-            %payment-icon {
-                display: inline-block;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-            }
-            
-            .container {
-                box-sizing: border-box;
-                @include wrapper();
-                position: relative;
-                margin: 0 auto;
-            }
-            
-            // .container {
-            //     max-width: 1759px;
-            //     margin: 0 auto;
-            //     padding-left: 15px;
-            //     padding-right: 15px;
-            //     @include sm(padding-right, 39px);
-            //     @include sm(padding-left, 39px);
-            //     @include lg(padding-right, 80px);
-            //     @include lg(padding-left, 80px);
-            //     // @include wrapper();
-            //     position: relative;
-            // }
-            .item {
-                box-sizing: border-box;
-                word-wrap: break-word;
-                margin-left: 0px;
-                margin-right: 0px;
-            }
-            
-            .row {
-                display: flex;
-                flex-wrap: wrap;
-                margin-left: 0px;
-                margin-right: 0px;
-                overflow: hidden;
-                @include lg(max-width, 1147px);
-                @include lg(margin, 0 auto);
-            }
-            
-            @media screen and (min-width: 768px) {
-                .row {
-                    margin-left: -15px;
-                    margin-right: -15px;
-                }
-            }
-            
+            @import "common.scss";
+            @import"colors.scss";
+            @import"placeholders.scss";
+            // BLOCK#13 "SECTION__TEXT-REVIEWS"
             .text-reviews {
                 margin: 0 auto;
-                padding-top: 56px;
                 position: relative;
-                padding-bottom: 64px;
-                // @include lg(margin-top, -336px);
-                @include sm( padding-bottom, 72px);
-                // @include lg( padding-bottom, 94px);
+                z-index: 5;
                 &__title {
                     @extend %title;
                     max-width: 244px;
@@ -145,9 +49,8 @@
                 &__list {
                     padding-top: 72px;
                     padding-bottom: 40px;
-                    @include lg(padding-bottom, 82px);
-                    @include sm(padding-top, 72px);
                     @include lg(padding-top, 112px);
+                    @include lg(padding-bottom, 0px);
                     position: relative;
                     z-index: 2;
                     &::after {
@@ -166,161 +69,176 @@
                         z-index: 2;
                     }
                 }
+                &__item {
+                    box-sizing: border-box;
+                    background: $white;
+                    background-position-y: 30px;
+                    padding: 48px 15px 16px;
+                    text-align: center;
+                    position: relative;
+                    z-index: 50;
+                    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
+                    @include sm(padding-left,
+                    206px);
+                    @include sm(padding-top,
+                    30px);
+                    @include sm(height,
+                    186px);
+                    &:not(:last-child) {
+                        margin-bottom: 72px;
+                        @include sm(margin-bottom,
+                        10px);
+                    }
+                    &-image {
+                        display: block;
+                        margin: 0 auto;
+                        position: absolute;
+                        left: 50%;
+                        top: -48px;
+                        transform: translateX(-50%);
+                        @include sm(left,
+                        0px);
+                        @include sm(top,
+                        0px);
+                        @include sm(transform,
+                        translateX(0));
+                        @include sm(width,
+                        192px);
+                        @include sm(height,
+                        186px);
+                    }
+                    &-header {
+                        @include sm(display,
+                        flex); // @include sm(flex-wrap,
+                        // no-wrap);
+                        @include sm(justify-content,
+                        space-between);
+                        @include sm(align-items,
+                        center);
+                    }
+                    &-name {
+                        display: inline-block;
+                        text-align: center;
+                        margin-bottom: 8px;
+                        padding: 10px 10px 6px;
+                        background-color: $header-color;
+                        @include font-mixin("Ubuntu-mono_B",
+                        20px,
+                        #00bcd4);
+                        line-height: 24px;
+                        @include sm(flex-grow,
+                        none);
+                        @include sm(padding-top,
+                        6px);
+                        @include sm(padding-bottom,
+                        4px);
+                        @include lg(padding-top,
+                        4px);
+                    }
+                    &-proffesion {
+                        margin-bottom: 14px;
+                        @include font-mixin(Ubuntu-mono_R,
+                        14px,
+                        #5f5f5f);
+                        @include sm(margin-bottom,
+                        0px);
+                        @include sm(font-size,
+                        12px);
+                        @include lg(font-size,
+                        14px);
+                        &_cutted {
+                            display: none;
+                            @include lg(display,
+                            inline-block);
+                        }
+                    }
+                    &-review {
+                        display: block;
+                        padding-bottom: 48px;
+                        @include font-mixin('OpenSans_ExB',
+                        14px,
+                        green);
+                        @include sm(padding-bottom,
+                        0px);
+                        text-align: left;
+                    }
+                }
             }
             
             .text-reviews .container {
+                padding-top: 56px;
+                padding-bottom: 66px;
+                @include sm(padding-top,
+                98px);
+                @include sm(padding-bottom,
+                72px);
+                @include lg(padding-top,
+                336px);
+                @include lg(padding-bottom,
+                84px);
                 background-image: url("../img/text_reviews320bg.png");
                 background-repeat: no-repeat;
                 background-size: cover;
-                // background-position: center;
-                @include lg(padding-top,
-                336px);
-                // @include sm(background-size, contain);
                 @include sm(background-image,
-                url("../img/text_reviews_768bg.png"));
-                @include lg(background-image,
                 url("../img/text_reviews_lg_bg.png"));
-                @include sm(padding-top,
-                100px);
-                // z-index: -1;
-            }
-            
-            .text-reviews .container::after {
-                display: none;
-                content: "";
-                width: 100px;
-                height: 330px;
-                background-color: #00bcd4;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                @include lg(display,
-                block);
-                z-index: -5;
-            }
-            
-            .text-reviews .row::before {
-                display: none;
-                @include lg(display,
-                block);
-                content: "";
-                width: 473px;
-                height: 359px;
-                background-color: #00bcd4;
-                position: absolute;
-                right: -122px;
-                top: 256px;
-                z-index: -10;
-            }
-            
-            .text-reviews .row::after {
-                display: none;
-                @include lg(display,
-                block);
-                content: "";
-                width: 1656px;
-                height: 730px;
-                background-image: url("../img/text_revies_bottom_bg_lg.png");
-                background-size: cover;
-                background-repeat: no-repeat;
-                position: absolute;
-                left: -386px;
-                bottom: 0px;
-                z-index: 1;
+                &::after {
+                    display: none;
+                    content: "";
+                    width: 100px;
+                    height: 330px;
+                    background-color: #00bcd4;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    @include lg(display,
+                    block);
+                }
             }
             
             .text-reviews .row {
                 flex-direction: column;
                 position: relative;
                 overflow: visible;
-            }
-            
-            .text-reviews__item {
-                box-sizing: border-box;
-                background: #fff;
-                background-position-y: 30px;
-                padding: 48px 15px 16px;
-                text-align: center;
-                position: relative;
-                z-index: 50;
-                box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.16);
-                @include sm(padding-left,
-                206px);
-                @include sm(padding-top,
-                30px);
-                @include sm(height,
-                186px);
-                &:not(:last-child) {
-                    margin-bottom: 72px;
-                    @include sm(margin-bottom,
-                    10px);
-                }
-                &-image {
-                    display: block;
-                    margin: 0 auto;
-                    position: absolute;
-                    left: 50%;
-                    top: -48px;
-                    transform: translateX(-50%);
-                    @include sm(left,
-                    0px);
-                    @include sm(top,
-                    0px);
-                    @include sm(transform,
-                    translateX(0));
-                    @include sm(width,
-                    192px);
-                    @include sm(height,
-                    186px);
-                }
-                &-header {
+                &::before {
+                    display: none;
                     @include sm(display,
-                    flex); // @include sm(flex-wrap,
-                    // no-wrap);
-                    @include sm(justify-content,
-                    space-between);
-                    @include sm(align-items,
-                    center);
+                    block);
+                    content: "";
+                    width: 80%;
+                    height: 60px;
+                    @include lg(width,
+                    359px);
+                    @include lg(height,
+                    473px);
+                    background-color: #00bcd4;
+                    position: absolute;
+                    top: 120px;
+                    right: 36px;
+                    @include lg(right,
+                    -122px);
+                    @include lg (top,
+                    256px);
+                    z-index: -10;
                 }
-                &-name {
-                    display: inline-block;
-                    text-align: center;
-                    margin-bottom: 8px;
-                    padding: 0 10px;
-                    background-color: black;
-                    @include font-mixin("Ubuntu-mono_R",
-                    30px,
-                    #00bcd4);
-                    line-height: 36px;
-                    @include sm(flex-grow,
-                    none);
+                &::after {
+                    display: none;
+                    @include lg(display,
+                    block);
+                    content: "";
+                    width: 1656px;
+                    height: 730px;
+                    background-image: url("../img/text_revies_bottom_bg_lg.png");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    left: -386px;
+                    bottom: 0px;
+                    z-index: 1;
+                    @include lg(position,
+                    absolute);
+                    @include lg(bottom,
+                    -248px);
                 }
-                &-proffesion {
-                    color: yellow;
-                    margin-bottom: 14px;
-                    @include sm(margin-bottom,
-                    0px);
-                    @include sm(font-size,
-                    12px);
-                    &_cutted {
-                        display: none;
-                        @include lg(display,
-                        inline-block);
-                    }
-                }
-                &-review {
-                    display: block;
-                    padding-bottom: 48px;
-                    @include font-mixin('OpenSans_ExB',
-                    14px,
-                    green);
-                    @include sm(padding-bottom,
-                    0px)
-                }
-            }
-            
-            .text-reviews__item .text-reviews__item-review {
-                text-align: left;
             }
             
             .see_results {
@@ -335,12 +253,16 @@
                 space-between);
                 @include lg(flex-flow,
                 row-reverse);
+                @include lg(margin-top,
+                0px);
                 @include sm(margin-top,
                 10px);
-                // @include lg(margin-top,
-                // 0px);
                 @include lg(justify-content,
                 space-between);
+                @include lg(position,
+                absolute);
+                @include lg(bottom,
+                -146px);
                 &-slogan {
                     margin-bottom: 36px;
                     @include font-mixin(OpenSans_ExB,
@@ -349,10 +271,14 @@
                     text-align: left;
                     @include sm(text-align,
                     center);
-                    // @include lg(margin-bottom,
-                    // 0px);
+                    @include lg(margin-bottom,
+                    0px);
                     @include sm(margin-bottom,
                     40px);
+                    @include sm(font-size,
+                    16px);
+                    @include lg(font-size,
+                    18px);
                     text-transform: uppercase;
                     &-link {
                         @extend %link;
@@ -378,19 +304,6 @@
                         6px);
                     }
                 }
-                // &::after {
-                //     display: none;
-                //     @include lg(display,
-                //     block);
-                //     content: "";
-                //     width: 98px;
-                //     height: 332px;
-                //     background-color: #00bcd4;
-                //     position: absolute;
-                //     bottom: 60px;
-                //     left: -382px;
-                //     z-index: -10;
-                // }
             }
             
             .read_more-button {
@@ -431,6 +344,8 @@
                 26px);
                 @include lg(padding-right,
                 38px);
+                @include lg(margin-right,
+                60px);
                 text-transform: uppercase;
                 color: white;
                 font-size: 14px;
@@ -440,12 +355,10 @@
                 box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
             }
             
+            // BLOCK#14 "SECTION__PRICES"
             .prices {
                 margin: 0 auto;
-                padding: 60px 0;
-                @include lg(padding-top,
-                268px);
-                color: white;
+                color: #fff;
                 position: relative;
                 z-index: 1;
                 &__title {
@@ -540,14 +453,12 @@
                     flex);
                 }
                 &__payment-item {
-                    // padding-top: 20px;
-                    // padding-bottom: 26px;
-                    text-align: center;
-                    background: #2a292c;
-                    border-bottom: 1px solid #403f42;
                     display: flex;
+                    text-align: center;
                     flex-direction: column;
                     align-items: center;
+                    background: #2a292c;
+                    border-bottom: 1px solid #403f42;
                     @include sm(border-border,
                     none);
                     @include sm(flex-grow,
@@ -653,69 +564,70 @@
             .prices .row {
                 flex-direction: column;
                 z-index: 10;
+                overflow: visible;
+                &::before {
+                    display: none;
+                    content: "";
+                    @include lg(display,
+                    block);
+                    height: 486px;
+                    width: 427px;
+                    transform: rotate(180deg);
+                    background-color: transparent;
+                    background-image: url("../img/difference_bubles.png");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    top: 672px;
+                    left: 80px;
+                    z-index: -1;
+                }
+                &::after {
+                    display: none;
+                    content: "";
+                    @include lg(display,
+                    block);
+                    height: 486px;
+                    width: 427px;
+                    background-image: url("../img/difference_bubles.png");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    bottom: 302px;
+                    right: 80px;
+                    z-index: -1;
+                }
             }
             
             .prices .container {
+                padding-top: 60px;
+                padding-bottom: 60px;
+                @include sm(padding-top,
+                82px);
+                @include lg(padding-top,
+                268px);
                 background-image: url("../img/prices320bg.png");
                 @include sm(background-image,
                 url("../img/prices768bg.png"));
                 z-index: 1;
-            }
-            
-            .prices .container::after {
-                display: none;
-                content: "";
-                @include sm(display,
-                block);
-                height: 700px;
-                width: 100%;
-                background-color: #2b2b30;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                z-index: -2;
-            }
-            
-            .prices .row::before {
-                display: none;
-                content: "";
-                @include lg(display,
-                block);
-                height: 486px;
-                width: 427px;
-                transform: rotate(180deg);
-                background-color: transparent;
-                background-image: url("../img/difference_bubles.png");
-                background-size: contain;
-                background-repeat: no-repeat;
-                position: absolute;
-                top: 472px;
-                left: 68px;
-                z-index: -1;
-            }
-            
-            .prices .row::after {
-                display: none;
-                content: "";
-                @include lg(display,
-                block);
-                height: 486px;
-                width: 427px;
-                background-image: url("../img/difference_bubles.png");
-                background-size: contain;
-                background-repeat: no-repeat;
-                position: absolute;
-                bottom: 302px;
-                right: 87px;
-                z-index: -1;
+                &::after {
+                    display: none;
+                    content: "";
+                    @include sm(display,
+                    block);
+                    height: 700px;
+                    width: 100%;
+                    background-color: #2b2b30;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: -2;
+                }
             }
             
             .bundle-list {
                 @include sm(display,
                 flex);
-                // flex);
-                // @include sm( margin,
-                // 0 -15px)
             }
             
             .bundle {
@@ -821,13 +733,13 @@
                         content: "";
                         @include lg(display,
                         block);
-                        width: 58px;
+                        width: 60px;
                         height: 1px;
                         background-color: #00bcd4;
                         position: absolute;
                         top: 50%;
                         transform: translateX(-50%);
-                        left: -38px;
+                        left: -10px;
                         z-index: 5;
                     }
                 }
@@ -856,9 +768,10 @@
                 background-image: -webkit-linear-gradient( 0deg, rgb(255, 198, 23) 0%, rgb(251, 7, 64) 100%);
                 box-shadow: 0px 12px 20px 0px rgba(28, 28, 30, 0.21);
                 border-radius: 5px;
-            } // differences
+            }
+            
+            // BLOCK#15 "SECTION__DIFFERENCE"
             .difference {
-                padding-top: 56px;
                 background: #fafafa;
                 position: relative;
                 z-index: 1;
@@ -886,7 +799,7 @@
                 &__item {
                     &:not(:last-child) {
                         padding-bottom: 30px;
-                    } // TODO h3 ubunto bold
+                    }
                     &-title {
                         display: block;
                         @include font-mixin("Ubuntu-mono_R",
@@ -903,7 +816,6 @@
                         }
                     }
                     &-summary {
-                        // semibold
                         @include font-mixin("OpenSans_ExB",
                         14px,
                         #242427)
@@ -973,10 +885,46 @@
                 }
             }
             
+            .difference .container {
+                padding-bottom: 56px;
+                background-color: #fafafa;
+                z-index: -1;
+                &::before {
+                    display: none;
+                    @include lg(display,
+                    block);
+                    content: "";
+                    width: 96px;
+                    height: 564px;
+                    background-color: #00bcd4;
+                    position: absolute;
+                    right: 50%;
+                    top: 60px;
+                    transform: translateX(628px);
+                    z-index: -10;
+                    box-shadow: 0px 48px 35px 0px rgba(0, 0, 0, 0.1);
+                }
+                &::after {
+                    display: none;
+                    @include lg(display,
+                    block);
+                    content: "";
+                    width: 475px;
+                    height: 948px;
+                    background-image: url("../img/difference_lg_image.png");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    top: 52px;
+                    left: 164px;
+                    z-index: -1;
+                }
+            }
+            
             .difference .row {
+                padding-top: 56px;
                 overflow: visible;
                 flex-direction: column;
-                // @include size-lg(1);
                 @include sm(box-shadow,
                 0px 22px 20px 0px rgba(0,
                 0,
@@ -990,72 +938,32 @@
                 @include sm(padding-right,
                 28px);
                 position: relative;
-            }
-            
-            .difference .row::after {
-                display: none;
-                @include lg(display,
-                block);
-                content: "";
-                width: 96px;
-                height: 564px;
-                background-color: #00bcd4;
-                position: absolute;
-                right: -72px;
-                top: 60px;
-                z-index: -10;
-                box-shadow: 0px 48px 35px 0px rgba(0, 0, 0, 0.1);
-            }
-            
-            .difference .row::before {
-                display: none;
-                @include lg(display,
-                block);
-                content: "";
-                width: 571px;
-                height: 562px;
-                background-color: #00bcd4;
-                position: absolute;
-                left: -36px;
-                bottom: -40px;
-                z-index: -10;
-            }
-            
-            .difference .container {
-                // @include wrapper();
-                // @include wrapper();
-                // @include sm(margin,
-                // 0 39px);
-                // @include sm(max-width,
-                // 1152px);
-            }
-            
-            .difference .container::after {
-                display: none;
-                @include lg(display,
-                block);
-                content: "";
-                width: 475px;
-                height: 953px;
-                background-image: url("../img/difference_lg_image.png");
-                background-size: cover;
-                background-repeat: no-repeat;
-                position: absolute;
-                top: 163px;
-                left: 152px;
-                z-index: -10;
-            }
-            
-            .difference::after {
-                display: none;
-                @include sm(display,
-                block);
-                content: "";
-                width: 2px;
-                height: 100%;
-                background-color: #dadadb;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                &::before {
+                    display: none;
+                    @include sm(display,
+                    block);
+                    content: "";
+                    width: 571px;
+                    height: 562px;
+                    background-color: #00bcd4;
+                    position: absolute;
+                    left: -36px;
+                    bottom: -40px;
+                    z-index: -10;
+                }
+                &::after {
+                    display: none;
+                    @include sm(display,
+                    block);
+                    content: "";
+                    width: 2px;
+                    height: 100%;
+                    background-color: #dadadb;
+                    opacity: 0.149;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 1;
+                }
             }

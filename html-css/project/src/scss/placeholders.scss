@@ -1,0 +1,43 @@
+%title {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    @include font-mixin('Museo_900', 25px, $header-color);
+    @include sm(font-size, 30px);
+    @include lg(font-size, 42px);
+}
+
+%title--before-line {
+    content: "";
+    display: inline-block;
+    border-bottom: 4px solid $main-blue;
+    width: 16px;
+    position: relative;
+    bottom: -4px;
+}
+
+%button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+%link {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+%payment-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
