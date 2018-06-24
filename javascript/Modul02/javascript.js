@@ -32,7 +32,7 @@ do {
     }
 } while (userInput !== 0);
 
-numbers.pop(userInput);
+
 
 // for(i = 0; i < numbers.length; i += 1){
 //   total += numbers[i];
