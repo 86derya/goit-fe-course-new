@@ -83,12 +83,12 @@ function Cashier(name, productsDatabase) {
         console.log("Your order details:");
         //   ----object - product_name: pcs*price
         this.orderCostPerItem = Object.assign({}, order);
-        //   ---- Array - getting names of products in the basket
+        //   ---- Array - getting names of products in the order
         const productNames = Object.keys(this.orderCostPerItem);
         //   ----- Process each ordered Product: 
         for (productName of productNames) {
             this.totalCostPerItem = 0;
-            //  ----- Condition when ordered product is in the baseOfProducts:
+            //  ----- Condition when ordered product is in the productsDatabase:
             if (productsDatabase[productName]) {
                 let productQty = order[productName];
                 let productItemPrice = productsDatabase[productName]
