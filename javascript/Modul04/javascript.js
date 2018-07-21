@@ -117,11 +117,5 @@ mango.reset();
 
 // Проверяем значения полей после reset
 console.log('Проверяем значения: [totalPrice] после reset: ', mango.totalPrice); // 0
-console.log(
-    'Проверяем значения: [customerMoney] после reset: ',
-    mango.customerMoney,
-); // 0
-console.log(
-    'Проверяем значения: [changeAmount] после reset: ',
-    mango.changeAmount,
-); // 0
+console.log('Проверяем значения: [customerMoney] после reset: ', mango.customerMoney); // 0
+console.log('Проверяем значения: [changeAmount] после reset: ', mango.changeAmount); // 0
