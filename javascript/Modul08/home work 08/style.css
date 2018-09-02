@@ -54,7 +54,7 @@ body {
     margin: 0 auto;
     padding: 0;
     height: 130px;
-    max-width: 100%;
+    max-width: 1000px;
     list-style: none;
     flex-wrap: nowrap;
 }
