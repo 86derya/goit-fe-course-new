@@ -28,9 +28,9 @@ body {
 }
 
 .image-gallery {
-    height: 400px;
+    height: 720px;
     margin: 0 auto;
-    width: 720 px;
+    width: 1280px;
     padding: 5px;
     box-sizing: border-box;
 }
@@ -38,7 +38,7 @@ body {
 .fullview {
     margin: 0 auto;
     height: 100%;
-    max-width: 720px;
+    max-width: 100%;
     box-sizing: border-box;
 }
 
