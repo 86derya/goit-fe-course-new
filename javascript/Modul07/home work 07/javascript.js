@@ -50,6 +50,7 @@ const createPostCard = ({ img, title, text, link }) => {
     postImage.setAttribute('src', img);
     postImage.setAttribute('alt', 'post image');
 
+
     const postTitle = document.createElement("h2");
     postTitle.classList.add("post__title");
     postTitle.innerText = title;
