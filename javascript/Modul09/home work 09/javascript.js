@@ -129,8 +129,8 @@ function getFormattedTime(time) {
     const date = new Date(time);
     let minutes = date.getMinutes();
 
-    if (minutes > 10) {
-        minutes = String(minutes).slice(1, length - 1);
+    if (minutes < 10) {
+        minutes = `0${date.getMinutes()}`;
     }
     let seconds = date.getSeconds();
     if (seconds < 10) {
@@ -138,7 +138,7 @@ function getFormattedTime(time) {
     }
     const milisec = date.getMilliseconds();
     const milSecFormatted = String(milisec).slice(0, 1);
-    return `0${minutes}:${seconds}.${milSecFormatted}`;
+    return `${minutes}:${seconds}.${milSecFormatted}`;
 
 }
 
