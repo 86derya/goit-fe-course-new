@@ -5,7 +5,7 @@ const startBtn = document.querySelector(".js-start");
 const takeLapBtn = document.querySelector(".js-take-lap");
 takeLapBtn.style.display = "none";
 const resetBtn = document.querySelector(".js-reset");
-resetBtn.style.cursor = "not-allowed";
+resetBtn.style.display = "none";
 const lapsList = document.querySelector(".js-laps");
 
 function showPauseBtn() {
@@ -17,13 +17,11 @@ function showContinueBtn() {
 };
 
 function resetBtnIsActive() {
-    resetBtn.setAttribute("active", "true");
-    resetBtn.style.cursor = "pointer";
+    resetBtn.style.display = "inline";
 };
 
 function resetBtnDisable() {
-    resetBtn.removeAttribute("active");
-    resetBtn.style.cursor = "not-allowed";
+    resetBtn.style.active = "not-allowed";
 };
 
 function createLapNote() {
@@ -32,6 +30,7 @@ function createLapNote() {
     lap.style.listStyle = "none";
     lap.textContent = getFormattedTime(timer.deltaTime);
     lapsList.appendChild(lap);
+
     return lap;
 }
 
@@ -51,6 +50,7 @@ function getFormattedTime(time) {
     const milisec = date.getMilliseconds();
     const milSecFormatted = String(milisec).slice(0, 1);
     return `${minutes}:${seconds}.${milSecFormatted}`;
+
 }
 
 const timer = {
@@ -61,8 +61,18 @@ const timer = {
         resetBtnIsActive();
         takeLapBtn.style.display = "inline";
 
-        if (startBtn.textContent === "Start" || startBtn.textContent === "Continue") {
+        if (startBtn.textContent === "Start") {
             showPauseBtn();
+            this.startTime = Date.now();
+            this.timerId = setInterval(() => {
+                const currentTime = Date.now();
+                this.deltaTime = currentTime - this.startTime;
+                updateTimerValue(this.deltaTime);
+                return timer.deltaTime;
+            }, 100);
+        } else if (startBtn.textContent === "Continue") {
+            showPauseBtn();
+            resetBtnIsActive();
             this.startTime = Date.now() - this.deltaTime;
             this.timerId = setInterval(() => {
                 const currentTime = Date.now();
@@ -72,6 +82,7 @@ const timer = {
             }, 100);
         } else {
             clearInterval(this.timerId);
+            resetBtnIsActive();
             showContinueBtn();
         };
     },
@@ -79,11 +90,9 @@ const timer = {
     reset() {
         startBtn.textContent = "Start";
         takeLapBtn.style.display = "none";
-
+        updateTimerValue(0);
+        resetBtn.style.display = "none";
         clearInterval(this.timerId);
-        timerFace.textContent = "00:00.0";
-
-        resetBtnDisable();
         removeLapNotes()
     },
 
