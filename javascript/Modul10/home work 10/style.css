@@ -137,3 +137,14 @@ body {
     border-radius: 8px;
     font-family: "Roboto", sans-serif;
 }
+
+.edit-user-overlay {
+    width: 300px;
+    height: 300px;
+    padding-top: 100px;
+    position: fixed;
+    background: whitesmoke;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+}

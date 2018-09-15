@@ -10,14 +10,21 @@
 </head>
 
 <body>
+    <div class="edit-user-overlay">
+        <input type="text" class="name--overlay input">
+        <input type="text" class="age--overlay input">
+        <button class="update-user btn">Save</button>
+    </div>
     <div class="all_users__container container">
         <button class=" btn submitGetAllUsersBtn">Show All Users</button>
         <div class="user-list-wrapper"></div>
+
     </div>
 
     <div class="user_getByid_container">
         <form action="submit" class="user_getByid_form">
-            <input type="text" class="user_getByid_id input" placeholder="Input user Id...">
+            <p class="name"> <input type="text" class="user_getByid_id input" placeholder=" Input user Id..."></p>
+
             <div>
                 <button class=" btn show-userbyId_button">Find user</button>
             </div>

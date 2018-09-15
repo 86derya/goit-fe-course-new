@@ -24,12 +24,16 @@ const DOMrefs = {
     allUsers: document.querySelector(".all_users__container"),
     getAllUsersBtn: document.querySelector(".submitGetAllUsersBtn"),
     allFetchedUsersWrapper: document.querySelector(".user-list-wrapper"),
-    fetchedUserCard: document.querySelector(".user-card"),
-    fetchedUserId: document.querySelector(".user-ID"),
-    fetchedUserName: document.querySelector(".user-Name"),
-    fetchedUserAge: document.querySelector(".user-Age"),
+    // fetchedUserCard: document.querySelector(".user-card"),
+    // fetchedUserId: document.querySelector(".user-ID"),
+    // fetchedUserName: document.querySelector(".user-Name"),
+    // fetchedUserAge: document.querySelector(".user-Age"),
     fetchedUserDeleteBtn: document.querySelector(".user-card-deleteBtn"),
     fetchedUserEditBtn: document.querySelector(".user-card-editBtn"),
+
+    updateUserPopUp: document.querySelector(".edit-user-overlay"),
+    updateUserName: document.querySelector(".name--overlay"),
+    updateUserAge: document.querySelector(".age--overlay"),
 
     findUserByIdContainer: document.querySelector(".user_getByid_container"),
     findUserByIdForm: document.querySelector(".user_getByid_form"),
@@ -44,7 +48,8 @@ const DOMrefs = {
     createNewUserName: document.querySelector(".New-user_create__name"),
     createNewUserAge: document.querySelector(".New-user_create__age"),
 
-    // deleteUserbyIdBtn: document.querySelector(".delete-userbyId_button"),
+
+
 }
 
 const request = {
@@ -114,7 +119,26 @@ const request = {
             console.log("ERROR:" + error)
         })
     },
+    fetchUpdateUser({ user }) {
+        return fetch(request.API_URL, {
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then(response => {
+            return response.json();
+        }).then(
+            newuser => {
+                return console.log(newuser);
+            }
 
+        ).catch(error => {
+            alert(`User ID   "${error}"  is Invalid `);
+            console.log("ERROR:" + error)
+        })
+    },
 }
 
 // ==============getAllUsers()================================================================================
@@ -257,9 +281,55 @@ function handleDeleteUserById(evt) {
 
 }
 
+// ======================updateUser(id, user)===================================================
+
+function updateUser(id, user) {
+
+    request.fetchUpdateUser(id, user)
+}
+
+function overlaygetUpdatedUser(updatedUser) {
+    updatedUser = {
+        name: DOMrefs.updateUserName.value,
+        age: DOMrefs.updateUserAge.value,
+    }
+    return updatedUser
+}
+
+function handleUpdateUserById(e) {
+    e.preventDefault();
+    const target = event.target;
+    const card = target.closest(".user-card");
+
+    if (target.textContent !== "edit") return;
+
+
+
+
+
+    const idToUpdate = card.childNodes[3].childNodes[1].textContent;
+    const nameToUpdate = card.childNodes[1].childNodes[1].textContent;
+    const ageToUpdate = card.childNodes[5].childNodes[1].textContent;
+
+    console.log(ageToUpdate);
+
+    const user = {
+        name: nameToUpdate,
+        age: ageToUpdate,
+    };
+    DOMrefs.updateUserName.value = user.name;
+    DOMrefs.updateUserAge.value = user.age;
+
+
+    console.log(overlaygetUpdatedUser(user));
+    // updateUser(idToUpdate, { updatedUser });
+
+}
+
 
 
 DOMrefs.getAllUsersBtn.addEventListener('click', handleGetAllUsers);
 DOMrefs.findUserByIdForm.addEventListener('click', handleGetUserById);
 DOMrefs.createNewUserBtn.addEventListener('click', handleCreateNewUser);
 DOMrefs.allUsers.addEventListener('click', handleDeleteUserById);
+DOMrefs.allUsers.addEventListener('click', handleUpdateUserById);
