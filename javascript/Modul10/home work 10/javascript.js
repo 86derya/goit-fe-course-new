@@ -101,23 +101,15 @@ const request = {
             console.log("ERROR:" + error)
         })
     },
-    fetchDeleteUser(id) {
-        return fetch(`${request.API_URL}:${id}`, {
+    fetchDeleteUser(id, name) {
+        return fetch(request.API_URL + id, {
             method: 'DELETE',
-            // headers: {
-            //     Accept: 'application/json',
-            //     'Content-Type': 'application/json',
-            // }
         }).then(response => {
             console.log(response);
+            alert(`User Name "${name}" was succesfully deleted!!!`)
             return response;
-        }).then(
-            deleteUser => {
-                alert(`deleteUser ${deleteUser}`)
-                return console.log("deleteUser: " + deleteUser);
-            }
-
-        ).catch(error => {
+        }).
+        catch(error => {
             alert(`User ID   "${error}"  is Invalid `);
             console.log("ERROR:" + error)
         })
@@ -129,9 +121,9 @@ const request = {
 function createUserList(users) {
     return users.reduce((acc, user) => acc +
         `<div class="user-card"> 
-        <div class="user-name"> user Name:<p class="user-Name"> ${user.name}</p></div>
-        <div class="user-id">user ID: <p class="user-ID"> ${user.id}</p></div> 
-        <div class="user-age"> user Age: <p class="user-Age"> ${user.age}</p> </div>
+        <div class="user-name"> user Name:<p class="user-Name">${user.name}</p></div>
+        <div class="user-id">user ID: <p class="user-ID">${user.id}</p></div> 
+        <div class="user-age"> user Age: <p class="user-Age">${user.age}</p> </div>
         <div class="user-card-buttons">
         <button class="user-card-deleteBtn user-card-Btn">delete</button>
         <button class="user-card-editBtn user-card-Btn">edit</button>
@@ -245,9 +237,9 @@ function handleCreateNewUser(e) {
 
 
 
-function removeUser(id) {
+function removeUser(id, name) {
 
-    request.fetchDeleteUser(id);
+    request.fetchDeleteUser(id, name);
 };
 
 function handleDeleteUserById(evt) {
@@ -257,10 +249,11 @@ function handleDeleteUserById(evt) {
     const card = target.closest(".user-card");
 
     if (target.textContent !== "delete") return;
-    const idTotoDelete = card.childNodes[3].childNodes[1].textContent;
-    console.log("ID to delete: " + idTotoDelete);
-    // console.log("id: ---- " + id);
-    removeUser(idTotoDelete);
+    const idToDelete = card.childNodes[3].childNodes[1].textContent;
+    const nameToDelete = card.childNodes[1].childNodes[1].textContent;
+    console.log("ID to delete: " + idToDelete);
+
+    removeUser(idToDelete, nameToDelete);
 
 }
 
