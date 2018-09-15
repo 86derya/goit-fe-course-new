@@ -24,6 +24,12 @@ const DOMrefs = {
     allUsers: document.querySelector(".all_users__container"),
     getAllUsersBtn: document.querySelector(".submitGetAllUsersBtn"),
     allFetchedUsersWrapper: document.querySelector(".user-list-wrapper"),
+    fetchedUserCard: document.querySelector(".user-card"),
+    fetchedUserId: document.querySelector(".user-ID"),
+    fetchedUserName: document.querySelector(".user-Name"),
+    fetchedUserAge: document.querySelector(".user-Age"),
+    fetchedUserDeleteBtn: document.querySelector(".user-card-deleteBtn"),
+    fetchedUserEditBtn: document.querySelector(".user-card-editBtn"),
 
     findUserByIdContainer: document.querySelector(".user_getByid_container"),
     findUserByIdForm: document.querySelector(".user_getByid_form"),
@@ -37,6 +43,8 @@ const DOMrefs = {
     createNewUserBtn: document.querySelector(".New-user_create__button"),
     createNewUserName: document.querySelector(".New-user_create__name"),
     createNewUserAge: document.querySelector(".New-user_create__age"),
+
+    // deleteUserbyIdBtn: document.querySelector(".delete-userbyId_button"),
 }
 
 const request = {
@@ -44,15 +52,91 @@ const request = {
     UserID: null,
     UserName: null,
     UserAge: null,
+    fetchAllUsers() {
+        return fetch(request.API_URL, {
+            method: 'GET',
+            body: JSON.stringify(),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then(response => {
+            if (response.ok) return response.json();
+            throw new Error(`Error while fetching: ${response.statusText}`)
+        }).then(data => {
+            console.log(data);
+            return data.data;
+        }).catch(error => {
+            console.log("ERROR:" + error)
+        })
+
+    },
+    fetchUserById(id) {
+        return request.fetchAllUsers().then(
+            users => {
+                return users.find(user => user.id === id);
+            }
+        ).then(founduser => {
+            if (founduser) return founduser;
+            throw new Error(`Error while fetching: ${response.statusText}`)
+        })
+    },
+    fetchPostUser({ user }) {
+        return fetch(request.API_URL, {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then(response => {
+            return response.json();
+        }).then(
+            newuser => {
+                return console.log(newuser);
+            }
+
+        ).catch(error => {
+            alert(`User ID   "${error}"  is Invalid `);
+            console.log("ERROR:" + error)
+        })
+    },
+    fetchDeleteUser(id) {
+        return fetch(request.API_URL, {
+            method: 'DELETE',
+            body: JSON.stringify(id),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then(response => {
+            console.log(response.json());
+            return response.json();
+        }).then(
+            deleteUser => {
+                alert(`deleteUuser "${deleteUser}"`)
+                return console.log("deleteUser: " + deleteUser);
+            }
+
+        ).catch(error => {
+            alert(`User ID   "${error}"  is Invalid `);
+            console.log("ERROR:" + error)
+        })
+    },
+
 }
 
 // ==============getAllUsers()================================================================================
 function createUserList(users) {
     return users.reduce((acc, user) => acc +
         `<div class="user-card"> 
-        <p class="user-name"> user Name: ${user.name}</p>
-        <p class="user-id">user ID: ${user.id}</p> 
-        <p class="user-age"> user Age: ${user.age} </p> 
+        <div class="user-name"> user Name:<p class="user-Name"> ${user.name}</p></div>
+        <div class="user-id">user ID: <p class="user-ID"> ${user.id}</p></div> 
+        <div class="user-age"> user Age: <p class="user-Age"> ${user.age}</p> </div>
+        <div class="user-card-buttons">
+        <button class="user-card-deleteBtn user-card-Btn">delete</button>
+        <button class="user-card-editBtn user-card-Btn">edit</button>
+        </div>
         </div>`, "",
     )
 }
@@ -67,30 +151,10 @@ function updateAllUsersBtnActive() {
 
 function getAllUsers() {
 
-    fetchAllUsers().then(users => {
+    request.fetchAllUsers().then(users => {
         const markup = createUserList(users);
         DOMrefs.allFetchedUsersWrapper.insertAdjacentHTML('beforeend', markup);
 
-    })
-
-}
-
-function fetchAllUsers() {
-    return fetch(request.API_URL, {
-        method: 'GET',
-        body: JSON.stringify(),
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        }
-    }).then(response => {
-        if (response.ok) return response.json();
-        throw new Error(`Error while fetching: ${response.statusText}`)
-    }).then(data => {
-        console.log(data);
-        return data.data;
-    }).catch(error => {
-        console.log("ERROR:" + error)
     })
 
 }
@@ -99,6 +163,7 @@ function handleGetAllUsers() {
     updateAllUsersBtnActive();
     removeUserList();
     getAllUsers();
+
 
 
 }
@@ -118,19 +183,10 @@ function resetUserFoundById() {
     DOMrefs.findUserByIdAge.textContent = `User Age:`;
 }
 
-function fetchUserById(id) {
-    return fetchAllUsers().then(
-        users => {
-            return users.find(user => user.id === id);
-        }
-    ).then(founduser => {
-        if (founduser) return founduser;
-        throw new Error(`Error while fetching: ${response.statusText}`)
-    })
-}
+
 
 function getUserById(id) {
-    return fetchUserById(id).then(
+    return request.fetchUserById(id).then(
         user => {
             console.log(`User fetched By Id: 
             User Name "${user.name}",
@@ -147,9 +203,9 @@ function getUserById(id) {
 
 function handleGetUserById(evt) {
     evt.preventDefault();
-    const target = evt.target;
-    if (target.nodeName !== "BUTTON") return;
-    if (!target.textContent === "Find user") return;
+    const target = event.target;
+    if (target.textContent !== "Find user") return;
+    // if (target.textContent !== "Find user") return;
     resetUserFoundById();
     request.UserID = DOMrefs.findUserByIdInput.value;
 
@@ -165,26 +221,9 @@ function addUser(nameToAdd, ageToAdd) {
     const user = {
         name: nameToAdd,
         age: ageToAdd,
-    }
+    };
+    request.fetchPostUser({ user });
 
-    return fetch(request.API_URL, {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        }
-    }).then(response => {
-        return response.json();
-    }).then(
-        newuser => {
-            return console.log(newuser);
-        }
-
-    ).catch(error => {
-        alert(`User ID   "${error}"  is Invalid `);
-        console.log("ERROR:" + error)
-    })
 }
 
 function handleCreateNewUser(e) {
@@ -204,7 +243,25 @@ function handleCreateNewUser(e) {
 
 // ==================removeUser(id)==========================================================
 
+
+
+
 function removeUser(id) {
+
+    request.fetchDeleteUser(id);
+};
+
+function handleDeleteUserById(evt) {
+    evt.preventDefault();
+
+    const target = event.target;
+    const card = target.closest(".user-card");
+
+    if (target.textContent !== "delete") return;
+    const idTotoDelete = card.childNodes[3].childNodes[1].textContent;
+    console.log("ID to delete: " + idTotoDelete);
+    // console.log("id: ---- " + id);
+    removeUser(idTotoDelete);
 
 }
 
@@ -213,3 +270,4 @@ function removeUser(id) {
 DOMrefs.getAllUsersBtn.addEventListener('click', handleGetAllUsers);
 DOMrefs.findUserByIdForm.addEventListener('click', handleGetUserById);
 DOMrefs.createNewUserBtn.addEventListener('click', handleCreateNewUser);
+DOMrefs.allUsers.addEventListener('click', handleDeleteUserById);
