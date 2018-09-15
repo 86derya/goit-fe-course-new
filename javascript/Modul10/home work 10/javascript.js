@@ -102,19 +102,18 @@ const request = {
         })
     },
     fetchDeleteUser(id) {
-        return fetch(request.API_URL, {
+        return fetch(`${request.API_URL}:${id}`, {
             method: 'DELETE',
-            body: JSON.stringify(id),
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            }
+            // headers: {
+            //     Accept: 'application/json',
+            //     'Content-Type': 'application/json',
+            // }
         }).then(response => {
-            console.log(response.json());
-            return response.json();
+            console.log(response);
+            return response;
         }).then(
             deleteUser => {
-                alert(`deleteUuser "${deleteUser}"`)
+                alert(`deleteUser ${deleteUser}`)
                 return console.log("deleteUser: " + deleteUser);
             }
 
