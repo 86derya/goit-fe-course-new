@@ -10,9 +10,38 @@
 </head>
 
 <body>
-    <div class="all_users__container">
+    <div class="all_users__container container">
         <button class=" btn submitGetAllUsersBtn">Show All Users</button>
+        <div class="user-list-wrapper"></div>
     </div>
+
+    <div class="user_getByid_container">
+        <form action="submit" class="user_getByid_form">
+            <input type="text" class="user_getByid_id input" placeholder="Input user Id...">
+            <div>
+                <button class=" btn show-userbyId_button">Find user</button>
+                <button class=" btn delete-userbyId_button">Delete user</button>
+            </div>
+
+        </form>
+
+        <div class="user_gotById-wrapper">
+            <p class="user_gotById-name">User name: </p>
+            <p class="user_gotById-id">User ID:</p>
+            <p class="user_gotById-age">User Age: </p>
+        </div>
+    </div>
+    <div class="New-user_create_container">
+        <form action="submit" class="New-user_create__form">
+            <input type="text" class="New-user_create__name input" placeholder="Input your name...">
+            <input type="text" class="New-user_create__age input" placeholder="Input your age...">
+            <button class=" btn New-user_create__button">Create user</button>
+        </form>
+
+    </div>
+
+
+
 </body>
 
 <script src="javascript.js"></script>

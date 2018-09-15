@@ -31,36 +31,82 @@ input[type="radio"].visually-hidden {
 
 body {
     padding: 10px;
+    display: flex;
+    align-items: flex-start;
 }
 
-.all_users__container {
+.container {
     margin: 20px;
     padding: 10px;
-    width: 330px;
+    width: 350px;
+    min-height: 160px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn {
     display: block;
-    width: 160px;
     text-transform: uppercase;
     border: 0;
+    margin: 10px auto;
     background-color: #212121;
     color: #ffffff;
     padding: 10px 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 8px;
     font-family: "Roboto", sans-serif;
+}
+
+.forms-wrap {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .submitGetAllUsersBtn {
     margin: 0 auto;
 }
 
-.user-wrapper {
+.user-list-wrapper {
+    display: block;
+}
+
+.user-card {
     display: block;
     margin: 10px;
     padding: 10px 5px;
+    height: 90px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.user_getByid_container {
+    margin: 20px;
+    padding: 10px;
+    width: 350px;
+    height: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.user_getByid_form div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.New-user_create_container {
+    margin: 20px;
+    padding: 10px;
+    width: 350px;
+    height: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.New-user_create__form {
+    display: block;
+    margin: 0 auto;
+}
+
+.input {
+    display: block;
+    width: 200px;
+    height: 30px;
+    margin: 0 auto;
 }
