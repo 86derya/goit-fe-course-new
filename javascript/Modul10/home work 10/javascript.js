@@ -24,16 +24,14 @@ const DOMrefs = {
     allUsers: document.querySelector(".all_users__container"),
     getAllUsersBtn: document.querySelector(".submitGetAllUsersBtn"),
     allFetchedUsersWrapper: document.querySelector(".user-list-wrapper"),
-    // fetchedUserCard: document.querySelector(".user-card"),
-    // fetchedUserId: document.querySelector(".user-ID"),
-    // fetchedUserName: document.querySelector(".user-Name"),
-    // fetchedUserAge: document.querySelector(".user-Age"),
+
     fetchedUserDeleteBtn: document.querySelector(".user-card-deleteBtn"),
     fetchedUserEditBtn: document.querySelector(".user-card-editBtn"),
 
     updateUserPopUp: document.querySelector(".edit-user-overlay"),
-    updateUserName: document.querySelector(".name--overlay"),
-    updateUserAge: document.querySelector(".age--overlay"),
+    updateUserPopUpName: document.querySelector(".name--overlay"),
+    updateUserPopUpAge: document.querySelector(".age--overlay"),
+    updateUserId: document.querySelector(".id"),
 
     findUserByIdContainer: document.querySelector(".user_getByid_container"),
     findUserByIdForm: document.querySelector(".user_getByid_form"),
@@ -47,9 +45,6 @@ const DOMrefs = {
     createNewUserBtn: document.querySelector(".New-user_create__button"),
     createNewUserName: document.querySelector(".New-user_create__name"),
     createNewUserAge: document.querySelector(".New-user_create__age"),
-
-
-
 }
 
 const request = {
@@ -57,6 +52,7 @@ const request = {
     UserID: null,
     UserName: null,
     UserAge: null,
+
     fetchAllUsers() {
         return fetch(request.API_URL, {
             method: 'GET',
@@ -95,14 +91,16 @@ const request = {
                 'Content-Type': 'application/json',
             }
         }).then(response => {
-            return response.json();
+            if (response.ok) return response.json();
+            throw new Error(`Error while fetching: ${response.statusText}`);
         }).then(
             newuser => {
+                alert(`created ${newuser.data.name}`)
                 return console.log(newuser);
             }
 
         ).catch(error => {
-            alert(`User ID   "${error}"  is Invalid `);
+            alert(`ERROR  "${error}"  `);
             console.log("ERROR:" + error)
         })
     },
@@ -111,33 +109,37 @@ const request = {
             method: 'DELETE',
         }).then(response => {
             console.log(response);
-            alert(`User Name "${name}" was succesfully deleted!!!`)
+            alert(`User Name "${name}" was succesfully deleted!!!`);
+            handleGetAllUsers();
             return response;
         }).
         catch(error => {
-            alert(`User ID   "${error}"  is Invalid `);
+            alert(`ERROR  "${error}"  `);
             console.log("ERROR:" + error)
         })
     },
-    fetchUpdateUser({ user }) {
-        return fetch(request.API_URL, {
-            method: 'PUT',
-            body: JSON.stringify(user),
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            }
-        }).then(response => {
-            return response.json();
-        }).then(
-            newuser => {
-                return console.log(newuser);
-            }
-
-        ).catch(error => {
-            alert(`User ID   "${error}"  is Invalid `);
-            console.log("ERROR:" + error)
-        })
+    fetchUpdateUser(id, user) {
+        return fetch(request.API_URL + id, {
+                method: 'PUT',
+                body: JSON.stringify(user),
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            }).then(response => {
+                if (response.ok) return response.json();
+                throw new Error(`Error while fetching: ${response.statusText}`);
+            }).then(
+                udateduser => {
+                    handleGetAllUsers();
+                    updateModalDisable();
+                    alert("updated")
+                    return console.log(udateduser);
+                })
+            .catch(error => {
+                alert(`ERROR  "${error}"  `);
+                console.log("ERROR:" + error)
+            })
     },
 }
 
@@ -165,27 +167,20 @@ function updateAllUsersBtnActive() {
 }
 
 function getAllUsers() {
-
     request.fetchAllUsers().then(users => {
         const markup = createUserList(users);
         DOMrefs.allFetchedUsersWrapper.insertAdjacentHTML('beforeend', markup);
-
     })
-
 }
 
 function handleGetAllUsers() {
     updateAllUsersBtnActive();
     removeUserList();
     getAllUsers();
-
-
-
 }
 
 // ======================getUserById(id)==============================================================
 function updateUserFoundById(user) {
-
     DOMrefs.findUserByIdName.textContent = `User name:   ${user.name}`;
     DOMrefs.findUserByIdUserId.textContent = `User ID: ${user.id}`;
     DOMrefs.findUserByIdAge.textContent = `User Age:  ${user.age}`;
@@ -197,8 +192,6 @@ function resetUserFoundById() {
     DOMrefs.findUserByIdUserId.textContent = `User ID:`;
     DOMrefs.findUserByIdAge.textContent = `User Age:`;
 }
-
-
 
 function getUserById(id) {
     return request.fetchUserById(id).then(
@@ -220,14 +213,13 @@ function handleGetUserById(evt) {
     evt.preventDefault();
     const target = event.target;
     if (target.textContent !== "Find user") return;
-    // if (target.textContent !== "Find user") return;
+
     resetUserFoundById();
     request.UserID = DOMrefs.findUserByIdInput.value;
 
     getUserById(request.UserID)
     DOMrefs.findUserByIdForm.reset();
 }
-
 
 // ==========================addUser(name, age)==========================================================
 
@@ -240,6 +232,7 @@ function addUser(nameToAdd, ageToAdd) {
     request.fetchPostUser({ user });
 
 }
+
 
 function handleCreateNewUser(e) {
     e.preventDefault();
@@ -258,11 +251,7 @@ function handleCreateNewUser(e) {
 
 // ==================removeUser(id)==========================================================
 
-
-
-
 function removeUser(id, name) {
-
     request.fetchDeleteUser(id, name);
 };
 
@@ -282,54 +271,60 @@ function handleDeleteUserById(evt) {
 }
 
 // ======================updateUser(id, user)===================================================
+function updateModalVisible() {
+    DOMrefs.updateUserPopUp.style.display = "block";
+}
+
+function updateModalDisable() {
+    DOMrefs.updateUserPopUp.style.display = "none";
+}
 
 function updateUser(id, user) {
-
     request.fetchUpdateUser(id, user)
 }
 
-function overlaygetUpdatedUser(updatedUser) {
-    updatedUser = {
-        name: DOMrefs.updateUserName.value,
-        age: DOMrefs.updateUserAge.value,
-    }
-    return updatedUser
-}
+function getUserToUpdate(target) {
 
-function handleUpdateUserById(e) {
-    e.preventDefault();
-    const target = event.target;
     const card = target.closest(".user-card");
-
-    if (target.textContent !== "edit") return;
-
-
-
-
 
     const idToUpdate = card.childNodes[3].childNodes[1].textContent;
     const nameToUpdate = card.childNodes[1].childNodes[1].textContent;
     const ageToUpdate = card.childNodes[5].childNodes[1].textContent;
 
-    console.log(ageToUpdate);
-
-    const user = {
-        name: nameToUpdate,
-        age: ageToUpdate,
-    };
-    DOMrefs.updateUserName.value = user.name;
-    DOMrefs.updateUserAge.value = user.age;
-
-
-    console.log(overlaygetUpdatedUser(user));
-    // updateUser(idToUpdate, { updatedUser });
+    DOMrefs.updateUserId.textContent = idToUpdate;
+    DOMrefs.updateUserPopUpName.value = nameToUpdate;
+    DOMrefs.updateUserPopUpAge.value = ageToUpdate;
 
 }
 
+function handleUpdateUser(e) {
+    e.preventDefault();
+    const target = event.target;
 
+    if (target.textContent === "edit") {
+        updateModalVisible();
 
+        return getUserToUpdate(target);
+    }
+
+    if (target.textContent === "Cancel") {
+        updateModalDisable()
+    }
+
+    if (target.textContent === "Save") {
+        const idToUpdate = DOMrefs.updateUserId.textContent;
+        const userEdited = {
+            name: DOMrefs.updateUserPopUpName.value,
+            age: Number(DOMrefs.updateUserPopUpAge.value),
+        }
+        console.log("idToUpdate" + idToUpdate)
+        console.log("userEdited" + userEdited);
+        updateUser(idToUpdate, userEdited);
+    };
+}
+//==================Listeners===================================================================
 DOMrefs.getAllUsersBtn.addEventListener('click', handleGetAllUsers);
 DOMrefs.findUserByIdForm.addEventListener('click', handleGetUserById);
 DOMrefs.createNewUserBtn.addEventListener('click', handleCreateNewUser);
 DOMrefs.allUsers.addEventListener('click', handleDeleteUserById);
-DOMrefs.allUsers.addEventListener('click', handleUpdateUserById);
+DOMrefs.allUsers.addEventListener('click', handleUpdateUser);

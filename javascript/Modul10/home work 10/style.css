@@ -143,8 +143,19 @@ body {
     height: 300px;
     padding-top: 100px;
     position: fixed;
-    background: whitesmoke;
-    display: block;
+    text-align: center;
+    background: rgb(78, 82, 81);
+    display: none;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+.update-user,
+.cancel {
+    display: inline;
+}
+
+.id {
+    display: none;
 }
