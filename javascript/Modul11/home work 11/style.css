@@ -1,0 +1,108 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.goods-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.form {
+    display: block;
+    width: 200px;
+}
+
+.form h2 {
+    font-size: 16px;
+    margin: 10px;
+}
+
+.form li {
+    font-size: 16px;
+    margin: 10px;
+    list-style: none;
+}
+
+.good-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1200px;
+}
+
+.good-card {
+    display: block;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.good-card:hover {
+    cursor: pointer;
+}
+
+.good-name,
+.good-description,
+.good-color,
+.good-release_date,
+.good-price {
+    font-weight: 700;
+    color: black;
+}
+
+.name,
+.description,
+.color,
+.release_date,
+.price {
+    font-weight: normal;
+    color: darkgray;
+}
+
+.good-image {
+    display: block;
+    margin: 10px auto;
+}
+
+.btn {
+    display: inline;
+    text-transform: uppercase;
+    border: 0;
+    margin: 10px;
+    background-color: #212121;
+    color: #ffffff;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 8px;
+    font-family: "Roboto", sans-serif;
+}

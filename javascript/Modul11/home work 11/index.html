@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Index</title>
+</head>
+
+<body>
+    <section class="goods-container">
+        <form class="form js-form">
+            <section>
+                <h2>Screen size</h2>
+                <ul>
+                    <li><label><input type="checkbox" name="size" value="13"> 13"</label></li>
+                    <li><label><input type="checkbox" name="size" value="15"> 15"</label></li>
+                    <li><label><input type="checkbox" name="size" value="17"> 17"</label></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Color</h2>
+                <ul>
+                    <li><label><input type="checkbox" name="color" value="white"> white</label></li>
+                    <li><label><input type="checkbox" name="color" value="gray"> gray</label></li>
+                    <li><label><input type="checkbox" name="color" value="black"> black</label></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Release date</h2>
+                <ul>
+                    <li><label><input type="checkbox" name="release_date" value="2015"> 2015</label></li>
+                    <li><label><input type="checkbox" name="release_date" value="2016"> 2016</label></li>
+                    <li><label><input type="checkbox" name="release_date" value="2017"> 2017</label></li>
+                </ul>
+            </section>
+            <button class="btn" type="submit">Filter</button>
+            <button class="btn" type="reset">Clear</button>
+        </form>
+        <div class="good-grid">
+        </div>
+        <!-- <div class="good-card">
+            <p class="good-name">Model: <span class="name">laptop</span></p>
+            <img class="good-image" src="http://demo.posthemes.com/pos_zadademo/images/placeholder.png" alt="laptop" width=180px>
+            <p class="good-description">Description: <span class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </span> </p>
+            <p class="good-color">Color: <span class="color">red</span></p>
+            <p class="good-release_date">Release date: <span class="release_date">2018</span></p>
+            <p class="good-price">Price: <span class="price">8000</span>$<span></span></p>
+        </div> -->
+
+    </section>
+
+</body>
+<template id="good-card">
+    <div class="good-card">
+            <p class="good-name">Model: 
+                    <span class="name">{{name}}</span></p>
+                    <img class="good-image" src= {{img}} alt="laptop" width=180px>
+                    <p class="good-description">Description: <span class="description">{{descr}}</span></p>
+                    <p class="good-color">Color: <span class="color">{{color}}</span></p>
+                    <p class="good-release_date">Release date: <span class="release_date">{{release_date}}</span></p>
+                    <p class="good-price">Price: <span class="price">{{price}}</span>$<span></span></p>
+    </div>
+
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+<script src="javascript.js"></script>
+
+</html>
