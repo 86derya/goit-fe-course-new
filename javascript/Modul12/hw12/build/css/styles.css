@@ -453,7 +453,7 @@ body {
 .bokkmark__href {
   display: inline-block;
   overflow: hidden;
-  max-width: 80%;
+  width: 80%;
   margin: 10px auto;
   font-size: 18px;
   padding: 10px;

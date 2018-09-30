@@ -114,7 +114,6 @@ function handleRemoveBookmark(e) {
     }
 }
 
-
 form.addEventListener('click', handleAddBookmark);
 container.addEventListener('click', handleRemoveBookmark)
 document.addEventListener('DOMContentLoaded', handleOnDomcreated)
