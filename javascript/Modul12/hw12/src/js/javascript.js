@@ -38,7 +38,7 @@ function handleOnDomcreated() {
     let urlListFromLS = localStorage.getItem("urlList") ? JSON.parse(localStorage.getItem("urlList")) : [];
     let urlList = urlListFromLS;
     updateLocalStorage(urlList);
-    createMarkup(urlListFromLS.reverse());
+    createMarkup(urlListFromLS);
 };
 
 function updateLocalStorage(toUpdate) {
