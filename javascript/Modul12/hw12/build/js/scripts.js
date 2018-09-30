@@ -38,6 +38,8 @@ var urlListWrap = document.querySelector(".bookmarks__list");
 
 function handleOnDomcreated() {
     var urlListFromLS = localStorage.getItem("urlList") ? JSON.parse(localStorage.getItem("urlList")) : [];
+    var urlList = [];
+    updateLocalStorage(urlList);
     createMarkup(urlListFromLS.reverse());
 };
 
