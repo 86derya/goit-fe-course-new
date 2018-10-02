@@ -34,81 +34,46 @@ const container = document.querySelector(".bookmarks__container");
 const input = document.querySelector(".bookmark__input");
 const urlListWrap = document.querySelector(".bookmarks__list");
 
-const LOCALSTORAGE = (w => {
-    if (!w) return;
-
-    const isActive = "localStorage" in w;
-    // GET OBJECT ONLY
-    const get = key => {
-        try {
-            const LSData = localStorage.getItem(key);
-            console.log(typeof(JSON.parse(LSData)));
-            return LSData === null && typeof(JSON.parse(LSData)) != object ?
-                undefined :
-                JSON.parse(LSData);
-        } catch (err) {
-            console.error("Get state error: ", err);
-        }
-    };
-
-    const set = (key, value) => {
-        try {
-            const valueToSave = JSON.stringify(value);
-            localStorage.setItem(key, valueToSave);
-        } catch (err) {
-            console.error("Set state error: ", err);
-        }
-    };
-
-    const userAPI = {
-        isActive,
-        get,
-        set,
-    };
-
-    return userAPI;
-})(window);
-
 function handleOnDomcreated() {
-    const urlList = LOCALSTORAGE.get("urlList") ? LOCALSTORAGE.get("urlList") : [];
+    let urlListFromLS = localStorage.getItem("urlList") ? JSON.parse(localStorage.getItem("urlList")) : [];
+    let urlList = urlListFromLS;
     updateLocalStorage(urlList);
-    createMarkup(urlList);
+    createMarkup(urlListFromLS);
 };
 
-function updateLocalStorage(valueToUpdate) {
-    LOCALSTORAGE.set("urlList", valueToUpdate);
+function updateLocalStorage(toUpdate) {
+    localStorage.setItem("urlList", JSON.stringify(toUpdate));
 }
 
 function checkForPrevSaved(name) {
-    let urlListFromLS = LOCALSTORAGE.get("urlList");
-    const savedUrlNames = urlListFromLS ? urlListFromLS.map(i => i.name) : [];
-    return savedUrlNames.some(bookmark => bookmark === name);
-}
+    let urlListFromLS = localStorage.getItem("urlList");
+    const savedUrlNames = urlListFromLS ? JSON.parse(urlListFromLS) : [];
 
-function checkForValidUrlSyntax(url) {
-    const regExp = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-    return regExp.test(url)
+    return savedUrlNames.some(bookmark => bookmark.name === name);
 }
 
 function handleAddBookmark(e) {
     e.preventDefault();
 
     const target = event.target;
-    let urlListFromLS = LOCALSTORAGE.get("urlList");
+    const regExp = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+
+    let urlListFromLS = JSON.parse(localStorage.getItem("urlList"))
 
     if (target.textContent === "Add") {
-        let urlList = urlListFromLS.reverse();
+        if (!regExp.test(input.value)) {
+            alert("Not valid Url")
+            form.reset();
+            return
+        };
+
         const bookmark = {
             name: "",
         };
 
-        if (!checkForValidUrlSyntax(input.value)) {
-            alert("Not valid Url");
-            form.reset();
-            return
-        }
+        let urlList = urlListFromLS.reverse();
 
-        if (!checkForPrevSaved(input.value)) {
+        if (checkForPrevSaved(input.value)) {
             bookmark.name = input.value;
             urlList.push(bookmark);
 
@@ -138,7 +103,7 @@ function handleRemoveBookmark(e) {
         const card = target.parentNode;
         const bookmarkToDelete = target.previousElementSibling.textContent;
 
-        let urlListFromLS = LOCALSTORAGE.get("urlList");
+        let urlListFromLS = JSON.parse(localStorage.getItem("urlList"));
         let updatedUrlList = urlListFromLS.filter(e => e.name != bookmarkToDelete);
 
         localStorage.removeItem('urlList');

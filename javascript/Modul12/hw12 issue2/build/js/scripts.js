@@ -1,3 +1,5 @@
+"use strict";
+
 /* 
   Напишите приложение для хранения url веб-страниц в виде карточек-закладок. 
   
@@ -28,87 +30,54 @@
   🔔 Оформление интерфейса произвольное
 */
 
-const form = document.querySelector(".bookmarks__form");
-const addButton = document.querySelector(".bookmark-add__button");
-const container = document.querySelector(".bookmarks__container");
-const input = document.querySelector(".bookmark__input");
-const urlListWrap = document.querySelector(".bookmarks__list");
-
-const LOCALSTORAGE = (w => {
-    if (!w) return;
-
-    const isActive = "localStorage" in w;
-    // GET OBJECT ONLY
-    const get = key => {
-        try {
-            const LSData = localStorage.getItem(key);
-            console.log(typeof(JSON.parse(LSData)));
-            return LSData === null && typeof(JSON.parse(LSData)) != object ?
-                undefined :
-                JSON.parse(LSData);
-        } catch (err) {
-            console.error("Get state error: ", err);
-        }
-    };
-
-    const set = (key, value) => {
-        try {
-            const valueToSave = JSON.stringify(value);
-            localStorage.setItem(key, valueToSave);
-        } catch (err) {
-            console.error("Set state error: ", err);
-        }
-    };
-
-    const userAPI = {
-        isActive,
-        get,
-        set,
-    };
-
-    return userAPI;
-})(window);
+var form = document.querySelector(".bookmarks__form");
+var addButton = document.querySelector(".bookmark-add__button");
+var container = document.querySelector(".bookmarks__container");
+var input = document.querySelector(".bookmark__input");
+var urlListWrap = document.querySelector(".bookmarks__list");
 
 function handleOnDomcreated() {
-    const urlList = LOCALSTORAGE.get("urlList") ? LOCALSTORAGE.get("urlList") : [];
+    var urlListFromLS = localStorage.getItem("urlList") ? JSON.parse(localStorage.getItem("urlList")) : [];
+    var urlList = urlListFromLS;
     updateLocalStorage(urlList);
-    createMarkup(urlList);
+    createMarkup(urlListFromLS);
 };
 
-function updateLocalStorage(valueToUpdate) {
-    LOCALSTORAGE.set("urlList", valueToUpdate);
+function updateLocalStorage(toUpdate) {
+    localStorage.setItem("urlList", JSON.stringify(toUpdate));
 }
 
 function checkForPrevSaved(name) {
-    let urlListFromLS = LOCALSTORAGE.get("urlList");
-    const savedUrlNames = urlListFromLS ? urlListFromLS.map(i => i.name) : [];
-    return savedUrlNames.some(bookmark => bookmark === name);
-}
-
-function checkForValidUrlSyntax(url) {
-    const regExp = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-    return regExp.test(url)
+    var urlListFromLS = JSON.parse(localStorage.getItem("urlList"));
+    var savedUrlNames = [];
+    urlListFromLS.map(function (bookmark) {
+        return savedUrlNames.push(bookmark.name);
+    });
+    if (!savedUrlNames.includes(name)) return true;
 }
 
 function handleAddBookmark(e) {
     e.preventDefault();
 
-    const target = event.target;
-    let urlListFromLS = LOCALSTORAGE.get("urlList");
+    var target = event.target;
+    var regExp = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+
+    var urlListFromLS = JSON.parse(localStorage.getItem("urlList"));
 
     if (target.textContent === "Add") {
-        let urlList = urlListFromLS.reverse();
-        const bookmark = {
-            name: "",
-        };
-
-        if (!checkForValidUrlSyntax(input.value)) {
+        if (!regExp.test(input.value)) {
             alert("Not valid Url");
             form.reset();
-            return
-        }
+            return;
+        };
 
-        if (!checkForPrevSaved(input.value)) {
+        var bookmark = {
+            name: ""
+        };
+
+        var urlList = urlListFromLS.reverse();
+
+        if (checkForPrevSaved(input.value)) {
             bookmark.name = input.value;
             urlList.push(bookmark);
 
@@ -124,22 +93,26 @@ function handleAddBookmark(e) {
 
 function createMarkup(list) {
     urlListWrap.innerHTML = "";
-    const source = document.querySelector("#bookmark__template").innerHTML.trim();
-    const template = Handlebars.compile(source);
-    const markup = list.reduce((acc, bookmark) => acc + template(bookmark), "");
+    var source = document.querySelector("#bookmark__template").innerHTML.trim();
+    var template = Handlebars.compile(source);
+    var markup = list.reduce(function (acc, bookmark) {
+        return acc + template(bookmark);
+    }, "");
     urlListWrap.insertAdjacentHTML("beforeend", markup);
 }
 
 function handleRemoveBookmark(e) {
     e.preventDefault();
-    const target = event.target;
+    var target = event.target;
 
     if (target.textContent === "Delete") {
-        const card = target.parentNode;
-        const bookmarkToDelete = target.previousElementSibling.textContent;
+        var card = target.parentNode;
+        var bookmarkToDelete = target.previousElementSibling.textContent;
 
-        let urlListFromLS = LOCALSTORAGE.get("urlList");
-        let updatedUrlList = urlListFromLS.filter(e => e.name != bookmarkToDelete);
+        var urlListFromLS = JSON.parse(localStorage.getItem("urlList"));
+        var updatedUrlList = urlListFromLS.filter(function (e) {
+            return e.name != bookmarkToDelete;
+        });
 
         localStorage.removeItem('urlList');
         updateLocalStorage(updatedUrlList);
@@ -150,5 +123,5 @@ function handleRemoveBookmark(e) {
 }
 
 form.addEventListener('click', handleAddBookmark);
-container.addEventListener('click', handleRemoveBookmark)
-document.addEventListener('DOMContentLoaded', handleOnDomcreated)
+container.addEventListener('click', handleRemoveBookmark);
+document.addEventListener('DOMContentLoaded', handleOnDomcreated);

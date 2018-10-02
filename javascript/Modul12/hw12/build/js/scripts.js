@@ -1,5 +1,7 @@
 "use strict";
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 /* 
   Напишите приложение для хранения url веб-страниц в виде карточек-закладок. 
   
@@ -36,48 +38,83 @@ var container = document.querySelector(".bookmarks__container");
 var input = document.querySelector(".bookmark__input");
 var urlListWrap = document.querySelector(".bookmarks__list");
 
+var LOCALSTORAGE = function (w) {
+    if (!w) return;
+
+    var isActive = "localStorage" in w;
+    // GET OBJECT ONLY
+    var get = function get(key) {
+        try {
+            var LSData = localStorage.getItem(key);
+            console.log(_typeof(JSON.parse(LSData)));
+            return LSData === null && _typeof(JSON.parse(LSData)) != object ? undefined : JSON.parse(LSData);
+        } catch (err) {
+            console.error("Get state error: ", err);
+        }
+    };
+
+    var set = function set(key, value) {
+        try {
+            var valueToSave = JSON.stringify(value);
+            localStorage.setItem(key, valueToSave);
+        } catch (err) {
+            console.error("Set state error: ", err);
+        }
+    };
+
+    var userAPI = {
+        isActive: isActive,
+        get: get,
+        set: set
+    };
+
+    return userAPI;
+}(window);
+
 function handleOnDomcreated() {
-    var urlListFromLS = localStorage.getItem("urlList") ? JSON.parse(localStorage.getItem("urlList")) : [];
-    var urlList = urlListFromLS;
+    var urlList = LOCALSTORAGE.get("urlList") ? LOCALSTORAGE.get("urlList") : [];
     updateLocalStorage(urlList);
-    createMarkup(urlListFromLS);
+    createMarkup(urlList);
 };
 
-function updateLocalStorage(toUpdate) {
-    localStorage.setItem("urlList", JSON.stringify(toUpdate));
+function updateLocalStorage(valueToUpdate) {
+    LOCALSTORAGE.set("urlList", valueToUpdate);
 }
 
 function checkForPrevSaved(name) {
-    var urlListFromLS = JSON.parse(localStorage.getItem("urlList"));
-    var savedUrlNames = [];
-    urlListFromLS.map(function (bookmark) {
-        return savedUrlNames.push(bookmark.name);
+    var urlListFromLS = LOCALSTORAGE.get("urlList");
+    var savedUrlNames = urlListFromLS ? urlListFromLS.map(function (i) {
+        return i.name;
+    }) : [];
+    return savedUrlNames.some(function (bookmark) {
+        return bookmark === name;
     });
-    if (!savedUrlNames.includes(name)) return true;
+}
+
+function checkForValidUrlSyntax(url) {
+    var regExp = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+    return regExp.test(url);
 }
 
 function handleAddBookmark(e) {
     e.preventDefault();
 
     var target = event.target;
-    var regExp = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-
-    var urlListFromLS = JSON.parse(localStorage.getItem("urlList"));
+    var urlListFromLS = LOCALSTORAGE.get("urlList");
 
     if (target.textContent === "Add") {
-        if (!regExp.test(input.value)) {
-            alert("Not valid Url");
-            form.reset();
-            return;
-        };
-
+        var urlList = urlListFromLS.reverse();
         var bookmark = {
             name: ""
         };
 
-        var urlList = urlListFromLS.reverse();
+        if (!checkForValidUrlSyntax(input.value)) {
+            alert("Not valid Url");
+            form.reset();
+            return;
+        }
 
-        if (checkForPrevSaved(input.value)) {
+        if (!checkForPrevSaved(input.value)) {
             bookmark.name = input.value;
             urlList.push(bookmark);
 
@@ -109,7 +146,7 @@ function handleRemoveBookmark(e) {
         var card = target.parentNode;
         var bookmarkToDelete = target.previousElementSibling.textContent;
 
-        var urlListFromLS = JSON.parse(localStorage.getItem("urlList"));
+        var urlListFromLS = LOCALSTORAGE.get("urlList");
         var updatedUrlList = urlListFromLS.filter(function (e) {
             return e.name != bookmarkToDelete;
         });
