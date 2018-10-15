@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#000000">
+    <meta name="copyright" content="Author">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+    <meta name="apple-mobile-web-app-title" content="Application Name">
+    <meta name="msapplication-TileImage" content="images/favicons/144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>hw13 webpack</title>
+    <!-- <link rel="stylesheet" href="css/styles.min.css"> -->
+<link href="styles.css" rel="stylesheet"></head>
+
+<body>
+
+    <section class="bookmarks__container">
+        <form class="bookmarks__form">
+            <input class="bookmark__input" type="url" placeholder=" Place your url here...">
+            <button class="bookmark-add__button" type="submit">Add</button>
+        </form>
+        <p>Saved URL</p>
+        <ul class="bookmarks__list"></ul>
+    </section>
+    <template id="bookmark__template">
+        <li class="bookmarks__item">
+            <img class="bookmark__image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/1024px-Gold_Star.svg.png" alt="favorite" width="30px">
+            <a class="bokkmark__href" href={{name}}>{{name}}</a>
+            <button class="bookmark-remove__button">Delete</button>
+        </li> 
+           </template>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+<script type="text/javascript" src="app.js"></script></body>
+
+</html>
