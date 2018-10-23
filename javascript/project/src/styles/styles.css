@@ -1,32 +1,14 @@
-html {
-    box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    min-height: 100vh;
-    background-color: #ffffff;
-    background-image: url('./images/bg.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
 /*
    Import partials below
 */
 
-@import 'normalize';
+@import './normalize.css';
 body {
-    background-color: rgb(97, 110, 110);
+    background-color: white;
+}
+
+.site-logo {
+    src: '../img/logo.png'
 }
 
 .bookmarks__container {
