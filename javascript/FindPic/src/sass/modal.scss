@@ -1,0 +1,100 @@
+.backdrop.show-modal {
+    display: flex;
+}
+
+.page-modal {
+    padding: 16px;
+		border-radius: 2px;
+		min-width: 300px;
+    max-width: 640px;
+    margin: 0 auto;
+    &__actions {
+        display: block;
+        margin: 0 auto;
+        max-width: 200px;
+        & button {
+            padding: 0;
+            border: none;
+            line-height: 16px;
+            color: #fff;
+            background-color: #6734ba;
+            cursor: pointer;
+            font-weight: 700;
+            outline: none;
+            &:hover {
+                color: #eeed11;
+            }
+        }
+    }
+    &__icons {
+        width: 167px;
+        padding: 10px 20px;
+        justify-content: space-around;
+        display: flex;
+        margin: auto;
+        background-color: #672cbd;
+        border-radius: 22px;
+        margin-top: 14px;
+    }
+    &__img {
+        display: block;
+				margin: auto;
+				max-width: 100%;
+				height: auto;
+		
+    }
+    ;
+}
+
+.backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    width: 98.5vw;
+    height: 100vh;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+//===================<<MEDIA 1200>>=========================
+@media(min-width: 1200px) {
+    .page-modal.show-modal .backdrop {
+        display: flex;
+    }
+    .page-modal {
+        // padding: 16px;
+        // border-radius: 2px;
+        // width: 520px;
+        margin: 0 auto;
+        &__actions {
+            display: flex;
+            justify-content: center;
+        }
+        &__icons {
+            width: 167px;
+            padding: 10px 20px;
+            justify-content: space-around;
+            display: flex;
+            background-color: #672cbd;
+            border-radius: 22px;
+            margin-top: 14px;
+        }
+        &__img {
+            max-width: 640px;
+            height: auto;
+        }
+        &__actions {
+            margin: auto;
+        }
+    }
+    .backdrop {
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+

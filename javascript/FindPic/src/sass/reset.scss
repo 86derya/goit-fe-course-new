@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 767px;
+}
+
+.button {
+    margin: auto;
+    outline: none;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+li {
+    list-style-type: none;
+}
+
+//===================<<MEDIA 1200>>=========================
+@media(min-width: 1200px) {
+    .wrapper {
+        max-width: 1200px;
+    }
+}
