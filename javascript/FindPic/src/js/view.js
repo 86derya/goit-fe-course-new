@@ -15,9 +15,9 @@ export default class View {
         this.refs.backdrop = document.querySelector('.backdrop');
         this.refs.modalPage = document.querySelector('.page-modal');
         this.refs.modalImg = document.querySelector('.page-modal__img');
-        this.refs.modalIcons = document.querySelector('.page-modal__icons');
-        this.refs.favoriteModalBtn = document.querySelector('button[data-action="favorite"]');
-        this.refs.showFavorite = document.querySelector('.favorites__link');
+        this.refs.modalIcons = document.querySelector('.page-modal__icons')
+        this.refs.favoriteModalBtn = document.querySelector('button[data-action="favorite"]')
+        this.refs.showFavorite = document.querySelector('.favorites__link')
     }
 
     showLoadMoreBtn() {
@@ -43,10 +43,10 @@ export default class View {
     }
 
     changeColorFavoriteBtn(color) {
-        return this.refs.favoriteModalBtn.style.color = color;
+        this.refs.favoriteModalBtn.style.color = color
     }
 
     changeDisplayElem(elem, string) {
         elem.style.display = string
-    };
+    }
 }

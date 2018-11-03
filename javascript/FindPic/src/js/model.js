@@ -5,9 +5,8 @@ export default class Model {
     constructor() {
         this.currentQuery = '';
         this.currentPage = 1;
-        this.keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
         this.localImages = JSON.parse(localStorage.getItem('favorites'));
-
+        this.keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
         if (this.localImages === null || this.localImages.length === 0) {
             this.localImages = []
         }
@@ -64,7 +63,7 @@ export default class Model {
             window.addEventListener('DOMMouseScroll', this.preventDefault, false);
         window.onwheel = this.preventDefault; // modern standard
         window.onmousewheel = document.onmousewheel = this.preventDefault; // older browsers, IE
-        window.ontouchmove = this.preventDefault; // mobile
+        // window.ontouchmove = this.preventDefault; // mobile
         document.onkeydown = this.preventDefaultForScrollKeys;
 
     }

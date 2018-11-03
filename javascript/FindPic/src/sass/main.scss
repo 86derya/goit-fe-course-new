@@ -1,88 +1,94 @@
 .page {
-    margin: 0 auto;
-    padding: 8px;
+	margin: 0 auto;
+	padding: 8px;
 }
 
 .site-logo {
-    display: block;
-    margin: 0 auto;
-    width: 302px;
-    cursor: pointer;
+	display: block;
+	margin: 0 auto;
+	width: 302px;
+	cursor: pointer;
 }
 
 .form {
-    display: block;
-    margin: 0 auto;
-    padding-bottom: 20px;
-    &__input {
-        display: block;
-        margin: 0 auto;
-        width: 300px;
-        padding: 8px 16px 6;
-        padding: 8px 14px 6px;
-        color: #949597;
-        border-radius: 0.812rem;
-        border: 1px solid $border-color;
-        border-bottom: 2px solid $border-color;
-        outline: none;
-    }
-    &__btn {
-        display: block;
-        margin: 20px auto 0;
-        border-radius: 0.812rem;
-        font-size: 16px;
-        // line-height: 16px;
-        padding: 5px 18px 5px 22px;
-        font-family: Comfortaa, Roboto, sans-serif;
-        background-color: $yellow;
-        color: $color-font-white;
-        outline: none;
-        background-color: $yellow;
-        border: none;
-    }
+	display: block;
+	margin: 0 auto;
+	padding-bottom: 20px;
+
+	&__input {
+		display: block;
+		margin: 0 auto;
+		width: 300px;
+		padding: 8px 16px 6;
+		padding: 8px 14px 6px;
+		color: #949597;
+		border-radius: 0.812rem;
+		border: 1px solid $border-color;
+		border-bottom: 2px solid $border-color;
+		outline: none;
+	}
+
+	&__btn {
+		display: block;
+		margin: 20px auto 0;
+		border-radius: 0.812rem;
+		font-size: 14px;
+		padding: 5px 16px 4px 20px;
+		font-family: Comfortaa, Roboto, sans-serif;
+		background-color: $yellow;
+		color: $color-font-white;
+		outline: none;
+		background-color: $yellow;
+		border: none;
+	}
 }
 
 .list__load-more {
-    display: none;
-    margin: 0;
-    padding: 0;
-    &.visible {
-        display: block;
-        margin: 0 auto;
-        color: $color-font-white;
-        background-color: $yellow;
-        border-radius: 0.812rem;
-        font-size: 14px;
-        padding: 8px 14px 6px;
-        font-family: Comfortaa, Roboto, sans-serif;
-        color: $color-font-white;
-        outline: none;
-        border: none;
-    }
+	display: none;
+	margin: 0;
+	padding: 0;
+
+	&.visible {
+		display: block;
+		margin: 0 auto;
+		color: $color-font-white;
+		background-color: $yellow;
+		border-radius: 0.812rem;
+		font-size: 14px;
+		padding: 8px 14px 6px;
+		font-family: Comfortaa, Roboto, sans-serif;
+		color: $color-font-white;
+		outline: none;
+		border: none;
+	}
 }
 
 //===================<<MEDIA 1200>>=========================
 @media(min-width: 1200px) {
-    .page {
-        margin: 0 auto;
-        padding-top: 30px;
-    }
-    .form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__input {
-            margin: 0;
-            width: 450px;
-            font-size: 10px;
-            margin-right: 16px;
-        }
-        &__btn {
-            margin: 0;
-            font-size: 16px;
-        }
-    }
-    .list__load-more {
-        margin-top: 100px;
-    }
+	.page {
+		margin: 0 auto;
+		padding-top: 30px;
+	}
+
+	.form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&__input {
+			margin: 0;
+			width: 450px;
+			font-size: 10px;
+			margin-right: 16px;
+		}
+
+		&__btn {
+			margin: 0;
+			font-size: 14px;
+		}
+	}
+
+	.list__load-more {
+		margin-top: 100px;
+	}
 }
